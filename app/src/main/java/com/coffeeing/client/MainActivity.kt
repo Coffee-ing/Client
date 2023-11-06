@@ -1,11 +1,11 @@
 package com.coffeeing.client
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.coffeeing.client.databinding.ActivityMainBinding
+import com.coffeeing.client.util.binding.BindingActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
     }
 }
