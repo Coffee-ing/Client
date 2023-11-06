@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#FCF7E8</color>
+
+    <color name="point_1">#451A27</color>
+    <color name="point_2">#B995A1</color>
+
+    <color name="text">#2F2F2F</color>
+    <color name="symantic">#FF2633</color>
 </resources>
