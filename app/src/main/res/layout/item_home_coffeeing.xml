@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/spacing20"
+    android:layout_marginVertical="@dimen/spacing14"
+    android:background="@drawable/rect_point_3_radius_15"
+    android:elevation="@dimen/spacing4">
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cg_item_home_coffeeing_coffeeing_type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="17dp"
+        android:layout_marginTop="19dp"
+        app:chipSpacing="8dp"
+        app:chipSpacingVertical="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.chip.Chip
+            style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coffeeing_type_barista_original" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coffeeing_type_local_area" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coffeeing_type_hot_place" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coffeeing_type_professional" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coffeeing_type_beginner" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_item_home_coffeeing"
+        android:layout_width="0dp"
+        android:layout_height="112dp"
+        android:layout_marginHorizontal="17dp"
+        android:layout_marginTop="7dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/coffeeing_dummy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cg_item_home_coffeeing_coffeeing_type"
+        app:shapeAppearanceOverlay="@style/Radius10" />
+
+    <TextView
+        android:id="@+id/tv_item_home_coffeeing_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textColor="@color/point_1"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_item_home_coffeeing"
+        tools:text="용산카페 전문바리스타 커피 클래스" />
+
+    <ImageView
+        android:id="@+id/iv_item_home_coffeeing_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:src="@drawable/ic_home_location"
+        app:layout_constraintStart_toStartOf="@+id/tv_item_home_coffeeing_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_home_coffeeing_title" />
+
+    <TextView
+        android:id="@+id/tv_item_home_coffeeing_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textColor="@color/point_1"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_item_home_coffeeing_location"
+        app:layout_constraintStart_toEndOf="@+id/iv_item_home_coffeeing_location"
+        app:layout_constraintTop_toTopOf="@+id/iv_item_home_coffeeing_location"
+        tools:text="서울특별시 용산구" />
+
+    <ImageView
+        android:id="@+id/iv_item_home_coffeeing_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_home_time"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_home_coffeeing_location"
+        app:layout_constraintStart_toEndOf="@+id/tv_item_home_coffeeing_location"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_home_coffeeing_location" />
+
+    <TextView
+        android:id="@+id/tv_item_home_coffeeing_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:textColor="@color/point_1"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_item_home_coffeeing_time"
+        app:layout_constraintStart_toEndOf="@+id/iv_item_home_coffeeing_time"
+        app:layout_constraintTop_toTopOf="@+id/iv_item_home_coffeeing_time"
+        tools:text="매주 토요일 13시" />
+
+    <ImageView
+        android:id="@+id/iv_item_home_coffeeing_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_home_person"
+        app:layout_constraintBottom_toBottomOf="@id/tv_item_home_coffeeing_time"
+        app:layout_constraintStart_toEndOf="@+id/tv_item_home_coffeeing_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_home_coffeeing_time" />
+
+    <TextView
+        android:id="@+id/tv_item_home_coffeeing_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/point_1"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_item_home_coffeeing_person"
+        app:layout_constraintStart_toEndOf="@+id/iv_item_home_coffeeing_person"
+        app:layout_constraintTop_toTopOf="@id/iv_item_home_coffeeing_person"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/tv_item_home_coffeeing_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:textColor="@color/point_1"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_item_home_coffeeing_heart"
+        app:layout_constraintEnd_toStartOf="@+id/iv_item_home_coffeeing_heart"
+        app:layout_constraintTop_toTopOf="@+id/iv_item_home_coffeeing_heart"
+        tools:text="33" />
+
+    <ImageView
+        android:id="@+id/iv_item_home_coffeeing_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:layout_marginEnd="@dimen/spacing20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_home_coffeeing_person"
+        tools:src="@drawable/ic_home_stroke_heart" />
+</androidx.constraintlayout.widget.ConstraintLayout>
