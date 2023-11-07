@@ -10,6 +10,7 @@
 
     <style name="Theme.Client" parent="Base.Theme.Client" />
 
+    <!-- Button -->
     <style name="Widget.Material.Button.Basic" parent="">
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -25,14 +26,7 @@
         <item name="cornerRadius">15dp</item>
     </style>
 
-    <style name="Widget.Material3.Chip.Style" parent="">
-        <item name="chipMinTouchTargetSize">0dp</item>
-        <item name="chipEndPadding">0dp</item>
-        <item name="chipStartPadding">0dp</item>
-        <item name="android:checked">false</item>
-        <item name="android:clickable">false</item>
-    </style>
-
+    <!-- BottomSheet -->
     <style name="Style.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Style.BottomSheet</item>
     </style>
@@ -47,6 +41,15 @@
         <item name="cornerSizeTopLeft">10dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <!-- Chip Style -->
+    <style name="Widget.Material3.Chip.Style" parent="">
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="chipEndPadding">0dp</item>
+        <item name="chipStartPadding">0dp</item>
+        <item name="android:checked">false</item>
+        <item name="android:clickable">false</item>
     </style>
 
     <style name="Style.Material3.Chip.Coffeeing.Type" parent="Widget.MaterialComponents.Chip.Choice">
@@ -64,6 +67,24 @@
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipStrokeColor">@color/point_1</item>
         <item name="android:textColor">@color/selector_coffeeing_type_text_color</item>
+    </style>
+
+    <style name="Style.Material3.Chip.Coffeeing.Type.Item" parent="Widget.Material3.Chip.Style">
+        <item name="chipCornerRadius">15dp</item>
+        <item name="textStartPadding">@dimen/spacing12</item>
+        <item name="textEndPadding">@dimen/spacing12</item>
+        <item name="android:fontFamily">@font/notosanskr_bold</item>
+        <item name="android:textSize">7dp</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipMinHeight">0dp</item>
+        <item name="android:paddingVertical">3dp</item>
+        <item name="chipBackgroundColor">@color/point_1</item>
+        <item name="android:textColor">@color/point_3</item>
+    </style>
+
+    <!--  ImageView Style  -->
+    <style name="Radius10">
+        <item name="cornerSize">10dp</item>
     </style>
 
 </resources>
