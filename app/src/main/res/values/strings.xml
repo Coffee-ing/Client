@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Client</string>
+
+    <!-- coffeeing type -->
+    <string name="coffeeing_type_barista_original">바리스타 오리지널</string>
+    <string name="coffeeing_local_area">동네친구끼리 편하게</string>
+    <string name="coffeeing_type_hot_place">핫플 카페 투어</string>
+    <string name="coffeeing_professional">직장인 커피모임</string>
+    <string name="coffeeing_beginner">커피 입문자 환영</string>
 </resources>
