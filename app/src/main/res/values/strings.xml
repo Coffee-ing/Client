@@ -3,8 +3,12 @@
 
     <!-- coffeeing type -->
     <string name="coffeeing_type_barista_original">바리스타 오리지널</string>
-    <string name="coffeeing_local_area">동네친구끼리 편하게</string>
+    <string name="coffeeing_type_local_area">동네친구끼리 편하게</string>
     <string name="coffeeing_type_hot_place">핫플 카페 투어</string>
-    <string name="coffeeing_professional">직장인 커피모임</string>
-    <string name="coffeeing_beginner">커피 입문자 환영</string>
+    <string name="coffeeing_type_professional">직장인 커피모임</string>
+    <string name="coffeeing_type_beginner">커피 입문자 환영</string>
+
+    <!-- home -->
+    <string name="home_empty">조회하신 커핑 정보가 없습니다.\n카테고리를 다시 선택해주세요.</string>
+    <string name="home_add_coffeeing">새 커핑 주최하기 +</string>
 </resources>
