@@ -49,4 +49,21 @@
         <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 
+    <style name="Style.Material3.Chip.Coffeeing.Type" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="chipEndPadding">0dp</item>
+        <item name="chipMinHeight">0dp</item>
+        <item name="chipStartPadding">0dp</item>
+        <item name="chipCornerRadius">15dp</item>
+        <item name="chipBackgroundColor">@color/selector_coffeeing_type_filter_background</item>
+        <item name="textStartPadding">@dimen/spacing12</item>
+        <item name="textEndPadding">@dimen/spacing12</item>
+        <item name="rippleColor">#00FFFFFF</item>
+        <item name="android:paddingVertical">3dp</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/point_1</item>
+        <item name="android:textColor">@color/selector_coffeeing_type_text_color</item>
+    </style>
+
 </resources>
