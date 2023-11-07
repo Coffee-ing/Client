@@ -33,4 +33,9 @@
         팔레트를 사용하면 레이아웃을 시각적으로 편집할 수 있으며, 레이아웃 구성 요소를 선택하고 배치하는 데 도움이 됩니다. 팔레트에서는 다양한 뷰, 위젯, 레이아웃 및 자원을 제공하므로 디자인 작업을 빠르게 수행할 수 있습니다.
     </string>
     <string name="coffeeing_submit">커핑 주최하기</string>
+
+    <!--다이어로그-->
+    <string name="dialog_title">[용산구 20대 커피모임]</string>
+    <string name="dialog_content">등록 완료되었습니다.\n등록 내역은 마이페이지에서 확인해주세요</string>
+    <string name="check">확인</string>
 </resources>

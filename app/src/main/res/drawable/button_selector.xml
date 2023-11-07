@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 버튼을 누르지 않았을 때의 상태 -->
+    <item android:state_pressed="false" android:color="@color/point_1">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+    <!-- 버튼을 누르고 있을 때의 상태 -->
+    <item android:state_pressed="true" >
+        <shape android:shape="rectangle" android:color="@color/white">
+            <solid android:color="@color/point_1" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+</selector>
