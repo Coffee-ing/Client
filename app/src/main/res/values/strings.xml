@@ -11,4 +11,5 @@
     <!-- home -->
     <string name="home_empty">조회하신 커핑 정보가 없습니다.\n카테고리를 다시 선택해주세요.</string>
     <string name="home_add_coffeeing">새 커핑 주최하기 +</string>
+    <string name="home_coffeeing_person">%d명</string>
 </resources>
