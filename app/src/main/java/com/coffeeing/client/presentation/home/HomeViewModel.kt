@@ -1,9 +1,14 @@
 package com.coffeeing.client.presentation.home
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.coffeeing.client.domain.model.Coffeeing
+import com.coffeeing.client.presentation.type.HomeSortType
 
 class HomeViewModel : ViewModel() {
+    private var _homeSort = MutableLiveData(HomeSortType.RECENT)
+    val homeSort get() = _homeSort
+
     val mockHomeCoffeeingList = listOf<Coffeeing>(
         Coffeeing(
             coffeeingId = 1,
@@ -51,4 +56,8 @@ class HomeViewModel : ViewModel() {
             isBiginner = true
         )
     )
+
+    fun setHomeSort(homeSortType: HomeSortType) {
+        _homeSort.value = homeSortType
+    }
 }

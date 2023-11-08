@@ -160,12 +160,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosanskr_bold"
-                android:text="최신순"
                 android:textColor="@color/point_1"
                 android:textSize="9dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="최신순" />
 
             <ImageView
                 android:id="@+id/iv_home_sort"
