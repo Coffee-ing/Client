@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="17dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="16dp"
         app:chipSpacing="8dp"
         app:chipSpacingVertical="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,30 +22,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chip_item_home_coffeeing_barista_original"
             style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/coffeeing_type_barista_original" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chip_item_home_coffeeing_local_area"
             style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/coffeeing_type_local_area" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chip_item_home_coffeeing_hot_place"
             style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/coffeeing_type_hot_place" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chip_item_home_coffeeing_professional"
             style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/coffeeing_type_professional" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chip_item_home_coffeeing_beginner"
             style="@style/Style.Material3.Chip.Coffeeing.Type.Item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,11 +65,11 @@
         android:layout_marginHorizontal="17dp"
         android:layout_marginTop="7dp"
         android:scaleType="centerCrop"
-        tools:src="@drawable/coffeeing_dummy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cg_item_home_coffeeing_coffeeing_type"
-        app:shapeAppearanceOverlay="@style/Radius10" />
+        app:shapeAppearanceOverlay="@style/Radius10"
+        tools:src="@drawable/coffeeing_dummy" />
 
     <TextView
         android:id="@+id/tv_item_home_coffeeing_title"
