@@ -1,4 +1,4 @@
-package com.coffeeing.client.presentation.dummy.create
+package com.coffeeing.client.presentation.create
 
 import android.app.DatePickerDialog
 import android.app.Dialog

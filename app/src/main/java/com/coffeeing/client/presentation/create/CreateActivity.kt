@@ -1,4 +1,4 @@
-package com.coffeeing.client.presentation.dummy.create
+package com.coffeeing.client.presentation.create
 
 import android.content.Intent
 import android.os.Bundle
