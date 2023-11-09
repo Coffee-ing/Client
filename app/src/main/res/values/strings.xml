@@ -17,10 +17,15 @@
     <string name="home_sort_deadline">마감임박 순</string>
 
     <!-- mypage -->
-    <string name="chip_item_mypage_category1">높은 산미</string>
-    <string name="chip_item_mypage_category2">분위기 좋은 카페</string>
-    <string name="chip_item_mypage_category3">커피챗</string>
-    <string name="chip_item_mypage_category4">외향 모임</string>
-    <string name="chip_item_mypage_category_plus"> + </string>
+    <string name="mypage_main_title">마이페이지</string>
+    <string name="chip_item_mypage_high_acidity">높은 산미</string>
+    <string name="chip_item_mypage_mood_cafe">분위기 좋은 카페</string>
+    <string name="chip_item_mypage_coffee_chat">커피챗</string>
+    <string name="chip_item_mypage_insider_group">외향 모임</string>
     <string name="mypage_profile_name">커피조아</string>
+    <string name="mypage_profile_name_sub">님,</string>
+    <string name="mypage_profile_name_mention">오늘도 향긋한 하루 되세요!</string>
+    <string name="mypage_host_title">주최한 커핑</string>
+    <string name="mypage_apply_title">신청한 커핑</string>
+    <string name="mypage_like_title">찜한 커핑</string>
 </resources>

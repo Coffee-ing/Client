@@ -29,8 +29,8 @@
                     android:id="@+id/tv_mypage_main_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="마이페이지"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/mypage_main_title"
                     android:fontFamily="@font/notosanskr_bold"
                     android:textColor="@color/point_1"
                     android:textSize="16sp"
@@ -38,13 +38,14 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/ib_mypage_back_arrow"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:src="@drawable/ib_mypage_back_arrow"
                     android:backgroundTint="@color/point_3"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tv_mypage_main_title"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_main_title"/>
 
@@ -65,33 +66,32 @@
                         android:layout_height="0dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/coffeeing_dummy"
-                        android:background="@drawable/circle_point_1"
+                        android:background="@drawable/oval_point_1_radius_15"
                         app:shapeAppearanceOverlay="@style/Circle"
                         app:layout_constraintDimensionRatio="1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@drawable/coffeeing_dummy"
-                        />
+                        tools:src="@drawable/coffeeing_dummy" />
 
                     <TextView
                         android:id="@+id/tv_mypage_profile_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="@string/mypage_profile_name"
                         android:fontFamily="@font/notosanskr_bold"
                         android:textSize="24sp"
                         android:textColor="@color/point_1"
                         app:layout_constraintStart_toEndOf="@id/iv_mypage_profile_image"
-                        app:layout_constraintTop_toTopOf="@id/iv_mypage_profile_image"/>
+                        app:layout_constraintTop_toTopOf="@id/iv_mypage_profile_image"
+                        tools:text="@string/mypage_profile_name"/>
 
                     <TextView
                         android:id="@+id/tv_mypage_profile_name_sub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="님,"
+                        android:text="@string/mypage_profile_name_sub"
                         android:fontFamily="@font/notosanskr_bold"
-                        android:textSize="18sp"
+                        android:textSize="18dp"
                         android:textColor="@color/point_1"
                         app:layout_constraintStart_toEndOf="@id/tv_mypage_profile_name"
                         app:layout_constraintBottom_toBottomOf="@id/tv_mypage_profile_name"/>
@@ -101,13 +101,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="오늘도 향긋한 하루 되세요!"
+                        android:text="@string/mypage_profile_name_mention"
                         android:fontFamily="@font/notosanskr_bold"
                         android:textSize="18sp"
                         android:textColor="@color/point_1"
                         app:layout_constraintTop_toBottomOf="@id/tv_mypage_profile_name"
-                        app:layout_constraintStart_toEndOf="@id/iv_mypage_profile_image"
-                        />
+                        app:layout_constraintStart_toEndOf="@id/iv_mypage_profile_image" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -119,7 +118,6 @@
                     android:layout_marginTop="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/cl_mypage_description">
 
-
                     <TextView
                         android:id="@+id/tv_mypage_favorite_title_name"
                         android:layout_width="0dp"
@@ -127,7 +125,6 @@
                         android:fontFamily="@font/notosanskr_bold"
                         android:textColor="@color/point_1"
                         android:textSize="16dp"
-                        android:text="@string/mypage_profile_name"
                         tools:text="@string/mypage_profile_name"/>
 
                     <TextView
@@ -138,9 +135,9 @@
                         android:textColor="@color/point_1"
                         android:textSize="16dp"
                         android:text="님의 취향/관심분야는?"
-                        tools:text="님의 취향/관심분야는?"
                         app:layout_constraintStart_toEndOf="@id/tv_mypage_favorite_title_name"
                         app:layout_constraintBottom_toBottomOf="@id/tv_mypage_favorite_title_name"/>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.chip.ChipGroup
@@ -160,37 +157,35 @@
                         style="@style/Style.Material3.Chip.Coffeeing.Type.Item.Mypage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/chip_item_mypage_category1" />
+                        android:text="@string/chip_item_mypage_high_acidity" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_item_mypage_category2"
                         style="@style/Style.Material3.Chip.Coffeeing.Type.Item.Mypage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/chip_item_mypage_category2" />
+                        android:text="@string/chip_item_mypage_mood_cafe" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_item_mypage_category3"
                         style="@style/Style.Material3.Chip.Coffeeing.Type.Item.Mypage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/chip_item_mypage_category3" />
+                        android:text="@string/chip_item_mypage_coffee_chat" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_item_mypage_category4"
                         style="@style/Style.Material3.Chip.Coffeeing.Type.Item.Mypage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/chip_item_mypage_category4" />
+                        android:text="@string/chip_item_mypage_insider_group" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_item_mypage_category_plus"
                         style="@style/Style.Material3.Chip.Coffeeing.Type.Item.Mypage.Plus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/chip_item_mypage_category_plus" />
-
-
+                        android:text=" + " />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -208,7 +203,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"
-                        android:text="주최한 커핑"
+                        android:text="@string/mypage_host_title"
                         android:fontFamily="@font/notosanskr_bold"
                         android:textSize="15sp"
                         android:textColor="@color/point_1"
@@ -242,7 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"
-                        android:text="신청한 커핑"
+                        android:text="@string/mypage_apply_title"
                         android:fontFamily="@font/notosanskr_bold"
                         android:textSize="15sp"
                         android:textColor="@color/point_1"
@@ -276,7 +271,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="25dp"
-                        android:text="찜한 커핑"
+                        android:text="@string/mypage_like_title"
                         android:fontFamily="@font/notosanskr_bold"
                         android:textSize="15sp"
                         android:textColor="@color/point_1"
@@ -286,6 +281,7 @@
                         android:id="@+id/rv_mypage_like_coffeeing"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="48.48dp"
                         android:orientation="horizontal"
                         android:nestedScrollingEnabled="false"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

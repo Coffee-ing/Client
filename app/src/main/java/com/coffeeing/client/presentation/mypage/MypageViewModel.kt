@@ -6,8 +6,6 @@ import com.coffeeing.client.domain.model.Coffeeing
 import com.coffeeing.client.presentation.type.HomeSortType
 
 class MypageViewModel : ViewModel() {
-    private var _homeSort = MutableLiveData(HomeSortType.RECENT)
-    val homeSort get() = _homeSort
 
     val mockHomeCoffeeingList = listOf<Coffeeing>(
         Coffeeing(
@@ -56,8 +54,4 @@ class MypageViewModel : ViewModel() {
             isBiginner = true
         )
     )
-
-    fun setHomeSort(homeSortType: HomeSortType) {
-        _homeSort.value = homeSortType
-    }
 }
