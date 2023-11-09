@@ -15,4 +15,32 @@
     <string name="home_sort_recent">최신순</string>
     <string name="home_sort_popularity">인기순</string>
     <string name="home_sort_deadline">마감임박 순</string>
+
+    <!-- detail -->
+    <string name="like_number">40</string>
+    <string name="detail1_title">용산카페 전문바리스타 커피 클래스</string>
+    <string name="detail1_place">용산커피대장</string>
+    <string name="detail1_time">매주 토요일 13시</string>
+    <string name="detail1_recruit">10명</string>
+    <string name="detail1_intro_title">커핑 소개</string>
+    <string name="detail1_intro_content">
+        안드로이드 스튜디오의 레이아웃 디자인 화면에서 XML 레이아웃의 일부를 볼 때 팔레트 뷰를 사용할 수 있습니다. 팔레트는 레이아웃의 구성 요소를 시각적으로 보여주며, 레이아웃 디자인을 편리하게 조작하고 구성할 수 있는 도구입니다.
+        팔레트를 보려면 다음 단계를 따르세요:
+        안드로이드 스튜디오를 열고 프로젝트를 로드합니다.
+        XML 레이아웃 파일을 엽니다. (예: res/layout/activity_main.xml)
+        XML 레이아웃 파일을 열었으면, 레이아웃 디자인 화면을 표시합니다. 레이아웃 디자인 화면은 XML 파일 편집기 하단의 탭 중 "Design" 탭을 선택하여 열 수 있습니다.
+        "Design" 탭을 선택하면 레이아웃 디자인 화면이 나타납니다.
+        디자인 화면의 오른쪽 하단에 있는 "팔레트" 탭을 클릭하면 팔레트가 표시됩니다.
+        팔레트에서 원하는 뷰나 위젯을 선택하고 레이아웃 디자인 화면에 끌어다 놓을 수 있습니다. 이렇게 하면 시각적으로 레이아웃을 조작하고 추가할 수 있습니다.
+        팔레트를 사용하면 레이아웃을 시각적으로 편집할 수 있으며, 레이아웃 구성 요소를 선택하고 배치하는 데 도움이 됩니다.
+    </string>
+
+    <string name="detail1_countdown_title">모집 마감일자</string>
+    <string name="detail1_countdown_content">2023년 11월 30일</string>
+    <string name="detail_submit">커핑 신청하기</string>
+
+    <!-- dialog -->
+    <string name="dialog_title">[용산구 20대 커피모임]</string>
+    <string name="dialog_content">등록 완료되었습니다.\n등록 내역은 마이페이지에서 확인해주세요</string>
+    <string name="check">확인</string>
 </resources>
