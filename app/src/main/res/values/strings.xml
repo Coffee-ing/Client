@@ -27,4 +27,9 @@
     <string name="create_closing_date">모집 마감 일자</string>
     <string name="create_category">카테고리 선택</string>
     <string name="create_context">소개글 작성</string>
+
+    <!-- dialog -->
+    <string name="dialog_confirm">확인</string>
+    <string name="dialog_title">[%s]</string>
+    <string name="dialog_create_context">등록 완료되었습니다.\n등록 내역은 ‘마이페이지’에서 확인해주세요</string>
 </resources>
