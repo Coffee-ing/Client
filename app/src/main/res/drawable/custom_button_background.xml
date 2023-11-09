@@ -2,6 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
+            <!-- 배경 색상을 원하는 색상으로 설정 -->
+            <solid android:color="@color/point_1" />
+            <!-- 테두리를 둥글게 처리 (원하는 반지름으로 조정) -->
             <solid android:color="@color/point_1" />
             <corners android:radius="50dp" />
         </shape>
