@@ -67,7 +67,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
 
     private fun showDialog() {
         BindingCoffeeingDialogFragment(
-            title = getString(R.string.dialog_title),
+            title = getString(R.string.dialog_title, coffeeing.title),
             context = getString(R.string.dialog_submit_context),
             clickBtn = { }
         ).show(supportFragmentManager, DIALOG)
