@@ -8,7 +8,9 @@
 
     <color name="point_1">#451A27</color>
     <color name="point_2">#B995A1</color>
+    <color name="point_3">#FFF4D4</color>
 
     <color name="text">#2F2F2F</color>
     <color name="symantic">#FF2633</color>
+    <color name="empty">#545454</color>
 </resources>
