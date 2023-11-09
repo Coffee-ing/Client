@@ -1,10 +1,12 @@
 package com.coffeeing.client.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityHomeBinding
+import com.coffeeing.client.presentation.create.CreateActivity
 import com.coffeeing.client.presentation.type.HomeSortType
 import com.coffeeing.client.util.binding.BindingActivity
 
@@ -38,6 +40,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         binding.layoutHomeSort.setOnClickListener {
             showHomeSortDialog()
         }
+
+        binding.tvHomeAddCoffeeing.setOnClickListener {
+            moveToCreate()
+        }
     }
 
     private fun addObservers() {
@@ -53,6 +59,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
                 currentSortType = it,
                 sort = { sortType -> viewModel.setHomeSort(sortType) }
             ).show(supportFragmentManager, HOME_SORT_DIALOG)
+        }
+    }
+
+    private fun moveToCreate() {
+        Intent(this@HomeActivity, CreateActivity::class.java).apply {
+            startActivity(this)
         }
     }
 
