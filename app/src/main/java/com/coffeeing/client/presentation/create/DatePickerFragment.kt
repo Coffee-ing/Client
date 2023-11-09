@@ -1,4 +1,4 @@
-package com.coffeeing.client.presentation.dummy.create
+package com.coffeeing.client.presentation.create
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -21,9 +21,10 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        val selectedDate = String.format(Locale.getDefault(), "%02d-%02d-%02d", year, month + 1, dayOfMonth)
+        val selectedDate =
+            String.format(Locale.getDefault(), "%02d-%02d-%02d", year, month + 1, dayOfMonth)
 
-        val editText = activity?.findViewById<EditText>(R.id.deadlineEdit)
+        val editText = activity?.findViewById<EditText>(R.id.et_create_closing_date)
         editText?.setText(selectedDate)
     }
 }
