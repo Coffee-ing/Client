@@ -1,44 +1,6 @@
 <resources>
     <string name="app_name">Client</string>
 
-    <!--커핑 실전-->
-    <string name="coffeeing_title">커핑 제목</string>
-    <string name="coffeeing_title_value">제목을 입력해주세요</string>
-    <string name="coffeeing_place">모임 장소</string>
-    <string name="coffeeing_place_value">장소를 입력해주세요</string>
-    <string name="coffeeing_time">정기모임 날짜 및 시간</string>
-    <string name="coffeeing_time_value">날짜 및 시간을 입력해주세요</string>
-    <string name="coffeeing_recruit">모집 인원</string>
-    <string name="coffeeing_recruit_value">모집 인원을 입력해주세요</string>
-    <string name="coffeeing_deadline">모집 마감 일자</string>
-    <string name="coffeeing_deadline_value">모집 마감 일자</string>
-    <string name="coffeeing_category">카테고리 선택</string>
-    <string name="coffeeing_category1">바리스타 오리지널</string>
-    <string name="coffeeing_category2">동네친구끼리 편하게</string>
-    <string name="coffeeing_category3">핫플 카페 투어</string>
-    <string name="coffeeing_category4">직장인 커피모임</string>
-    <string name="coffeeing_category5">커피 입문자 환영</string>
-    <string name="coffeeing_description">소개글 작성</string>
-    <string name="coffeeing_description_value">소개글을 적어주세요</string>
-
-    <string name="coffeeing_dummyString">
-        안드로이드 스튜디오의 레이아웃 디자인 화면에서 XML 레이아웃의 일부를 볼 때 팔레트 뷰를 사용할 수 있습니다. 팔레트는 레이아웃의 구성 요소를 시각적으로 보여주며, 레이아웃 디자인을 편리하게 조작하고 구성할 수 있는 도구입니다.
-        팔레트를 보려면 다음 단계를 따르세요:
-        안드로이드 스튜디오를 열고 프로젝트를 로드합니다.
-        XML 레이아웃 파일을 엽니다. (예: res/layout/activity_main.xml)
-        XML 레이아웃 파일을 열었으면, 레이아웃 디자인 화면을 표시합니다. 레이아웃 디자인 화면은 XML 파일 편집기 하단의 탭 중 "Design" 탭을 선택하여 열 수 있습니다.
-        "Design" 탭을 선택하면 레이아웃 디자인 화면이 나타납니다.
-        디자인 화면의 오른쪽 하단에 있는 "팔레트" 탭을 클릭하면 팔레트가 표시됩니다.
-        팔레트에서 원하는 뷰나 위젯을 선택하고 레이아웃 디자인 화면에 끌어다 놓을 수 있습니다. 이렇게 하면 시각적으로 레이아웃을 조작하고 추가할 수 있습니다.
-        팔레트를 사용하면 레이아웃을 시각적으로 편집할 수 있으며, 레이아웃 구성 요소를 선택하고 배치하는 데 도움이 됩니다. 팔레트에서는 다양한 뷰, 위젯, 레이아웃 및 자원을 제공하므로 디자인 작업을 빠르게 수행할 수 있습니다.
-    </string>
-    <string name="coffeeing_submit">커핑 주최하기</string>
-
-    <!--다이어로그-->
-    <string name="dialog_title">[용산구 20대 커피모임]</string>
-    <string name="dialog_content">등록 완료되었습니다.\n등록 내역은 마이페이지에서 확인해주세요</string>
-    <string name="check">확인</string>
-
     <!-- coffeeing type -->
     <string name="coffeeing_type_barista_original">바리스타 오리지널</string>
     <string name="coffeeing_type_local_area">동네친구끼리 편하게</string>
@@ -53,4 +15,16 @@
     <string name="home_sort_recent">최신순</string>
     <string name="home_sort_popularity">인기순</string>
     <string name="home_sort_deadline">마감임박 순</string>
+
+    <!-- coffeeing create -->
+    <string name="coffeeing_create">커핑 주최하기</string>
+    <string name="create_coffeeing">새 커핑 주최하기</string>
+    <string name="create_title">커핑 제목</string>
+    <string name="create_location">모임 장소</string>
+    <string name="create_day_date">정기모임 날짜 및 시간</string>
+    <string name="create_person">모집 인원</string>
+    <string name="person">명</string>
+    <string name="create_closing_date">모집 마감 일자</string>
+    <string name="create_category">카테고리 선택</string>
+    <string name="create_context">소개글 작성</string>
 </resources>
