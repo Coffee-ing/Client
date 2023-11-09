@@ -69,6 +69,19 @@
         <item name="android:textColor">@color/selector_coffeeing_type_text_color</item>
     </style>
 
+    <style name="Style.Material3.Chip.Coffeeing.Type.Mypage.Item" parent="Widget.Material3.Chip.Style">
+        <item name="chipCornerRadius">30dp</item>
+        <item name="textStartPadding">@dimen/spacing10</item>
+        <item name="textEndPadding">@dimen/spacing10</item>
+        <item name="android:fontFamily">@font/notosanskr_bold</item>
+        <item name="android:textSize">3.79dp</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipMinHeight">0dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="chipBackgroundColor">@color/point_1</item>
+        <item name="android:textColor">@color/point_3</item>
+    </style>
+
     <style name="Style.Material3.Chip.Coffeeing.Type.Item" parent="Widget.Material3.Chip.Style">
         <item name="chipCornerRadius">15dp</item>
         <item name="textStartPadding">@dimen/spacing12</item>

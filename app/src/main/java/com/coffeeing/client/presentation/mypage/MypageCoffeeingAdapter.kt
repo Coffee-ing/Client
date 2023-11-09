@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ItemHomeCoffeeingBinding
+import com.coffeeing.client.databinding.ItemMypageCoffeeingBinding
 import com.coffeeing.client.domain.model.Coffeeing
 import com.coffeeing.client.util.ItemDiffCallback
 
@@ -19,7 +20,7 @@ class MypageCoffeeingAdapter : ListAdapter<Coffeeing, MypageCoffeeingAdapter.Hom
     )
 ) {
     class HomeCoffeeingViewHolder(
-        private val binding: ItemHomeCoffeeingBinding,
+        private val binding: ItemMypageCoffeeingBinding,
         private val context: Context
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(coffeeing: Coffeeing) {
@@ -54,7 +55,7 @@ class MypageCoffeeingAdapter : ListAdapter<Coffeeing, MypageCoffeeingAdapter.Hom
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCoffeeingViewHolder {
         val binding =
-            ItemHomeCoffeeingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemMypageCoffeeingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeCoffeeingViewHolder(binding, parent.context)
     }
 
