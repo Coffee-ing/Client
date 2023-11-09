@@ -1,340 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/content_background">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
-
-        <TextView
-            android:id="@+id/welcomeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="새 커핑 주최하기"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/previousImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="60dp"
-            android:backgroundTint="@color/content_background"
-            android:src="@drawable/ic_back_arrow_white_24"
-            app:layout_constraintEnd_toStartOf="@+id/welcomeText"
-            app:layout_constraintTop_toTopOf="@+id/welcomeText"
-            app:layout_constraintBottom_toBottomOf="@+id/welcomeText"/>
-
-
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_title"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/welcomeText" />
-
-        <EditText
-            android:id="@+id/titleEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="150dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:hint="@string/coffeeing_title_value"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleText" />
-
-
-        <TextView
-            android:id="@+id/placeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_place"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleEdit" />
-
-        <EditText
-            android:id="@+id/placeEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="150dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:hint="@string/coffeeing_place_value"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/placeText" />
-
-
-        <TextView
-            android:id="@+id/timeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_time"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/placeEdit" />
-
-        <EditText
-            android:id="@+id/timeEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="150dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:hint="@string/coffeeing_time_value"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/timeText" />
-
-
-        <TextView
-            android:id="@+id/recruitText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_recruit"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/timeEdit" />
-
-        <EditText
-            android:id="@+id/recruitEdit"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="5dp"
-            android:hint="@string/coffeeing_recruit_value"
-            android:inputType="textPassword"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/peopleNumber"
-            app:layout_constraintTop_toBottomOf="@id/recruitText"
-            app:layout_constraintWidth_default="wrap"
-            app:layout_constraintWidth_max="100dp" />
-
-        <TextView
-            android:id="@+id/peopleNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="명"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/recruitEdit"
-            app:layout_constraintTop_toTopOf="@id/recruitEdit"
-            app:layout_constraintBottom_toBottomOf="@id/recruitEdit" />
-
-        <TextView
-            android:id="@+id/deadlineText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_deadline"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recruitEdit" />
-
-        <EditText
-            android:id="@+id/deadlineEdit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="200dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="5dp"
-            android:hint="@string/coffeeing_deadline_value"
-            android:focusable="false"
-            android:clickable="true"
-            android:onClick="showDatePickerDialog"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="19dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rect_point_3_radius_15"
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deadlineText" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <android.widget.Button
-            android:id="@+id/datePickerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:drawableStart="@drawable/ic_calendar_maincolor_24"
-            android:onClick="showDatePickerDialog"
-            app:layout_constraintStart_toEndOf="@id/deadlineEdit"
-            app:layout_constraintTop_toTopOf="@id/deadlineEdit"
-            />
+            <ScrollView
+                android:id="@+id/sv_create"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="21dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toTopOf="@id/btn_create_apply_coffeeing"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/categoryText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_category"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/deadlineEdit" />
+                    <ImageView
+                        android:id="@+id/iv_create_arrow_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="27dp"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <GridLayout
-            android:id="@+id/categoryButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:columnCount="3"
-            android:rowCount="2"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categoryText">
-            <ToggleButton
-                android:id="@+id/toggle1"
-                android:layout_width="110dp"
-                android:layout_height="40dp"
-                android:textSize="11sp"
-                android:layout_margin="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textOn="@string/coffeeing_category1"
-                android:textOff="@string/coffeeing_category1"
-                android:textColor="@color/point_1"
-                android:background="@drawable/button_selector"
-                android:layout_column="0"
-                android:layout_row="0" />
-            <ToggleButton
-                android:id="@+id/toggle2"
-                android:layout_width="110dp"
-                android:layout_height="40dp"
-                android:textSize="11sp"
-                android:layout_margin="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textOn="@string/coffeeing_category2"
-                android:textOff="@string/coffeeing_category2"
-                android:textColor="@color/point_1"
-                android:background="@drawable/button_selector"
-                android:layout_column="1"
-                android:layout_row="0" />
-            <ToggleButton
-                android:id="@+id/toggle3"
-                android:layout_width="110dp"
-                android:layout_height="40dp"
-                android:textSize="11sp"
-                android:layout_margin="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textOn="@string/coffeeing_category3"
-                android:textOff="@string/coffeeing_category3"
-                android:textColor="@color/point_1"
-                android:background="@drawable/button_selector"
-                android:layout_column="2"
-                android:layout_row="0" />
-            <ToggleButton
-                android:id="@+id/toggle4"
-                android:layout_width="110dp"
-                android:layout_height="40dp"
-                android:textSize="11sp"
-                android:layout_margin="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textOn="@string/coffeeing_category4"
-                android:textOff="@string/coffeeing_category4"
-                android:textColor="@color/point_1"
-                android:background="@drawable/button_selector"
-                android:layout_column="0"
-                android:layout_row="1" />
-            <ToggleButton
-                android:id="@+id/toggle5"
-                android:layout_width="110dp"
-                android:layout_height="40dp"
-                android:textSize="11sp"
-                android:layout_margin="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textOn="@string/coffeeing_category5"
-                android:textOff="@string/coffeeing_category5"
-                android:textColor="@color/point_1"
-                android:background="@drawable/button_selector"
-                android:layout_column="1"
-                android:layout_row="1" />
-        </GridLayout>
+                    <TextView
+                        android:id="@+id/tv_create_coffeeing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_coffeeing"
+                        android:textColor="@color/point_1"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_create_arrow_left"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/iv_create_arrow_left" />
 
-        <TextView
-            android:id="@+id/descriptionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/coffeeing_description"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/categoryButton" />
+                    <TextView
+                        android:id="@+id/tv_create_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_title"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_create_coffeeing" />
 
-        <ScrollView
-            android:id="@+id/descriptionEdit"
-            android:background="@drawable/edit_text_border"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_margin="30dp"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descriptionText">
+                    <EditText
+                        android:id="@+id/et_create_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing4"
+                        android:layout_marginEnd="100dp"
+                        android:backgroundTint="@color/point_1"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="13dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_create_title"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_create_title" />
 
-            <EditText
-                android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/tv_create_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing24"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_location"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/et_create_title"
+                        app:layout_constraintTop_toBottomOf="@+id/et_create_title" />
+
+                    <EditText
+                        android:id="@+id/et_create_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing4"
+                        android:layout_marginEnd="130dp"
+                        android:backgroundTint="@color/point_1"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="13dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_create_location"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_create_location" />
+
+                    <TextView
+                        android:id="@+id/tv_create_day_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing24"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_day_date"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/et_create_location"
+                        app:layout_constraintTop_toBottomOf="@+id/et_create_location" />
+
+                    <EditText
+                        android:id="@+id/et_create_day_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing4"
+                        android:layout_marginEnd="130dp"
+                        android:backgroundTint="@color/point_1"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="13dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_create_day_date"
+                        app:layout_constraintTop_toBottomOf="@id/tv_create_day_date" />
+
+                    <TextView
+                        android:id="@+id/tv_create_person"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing24"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_person"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/et_create_day_date"
+                        app:layout_constraintTop_toBottomOf="@+id/et_create_day_date" />
+
+                    <EditText
+                        android:id="@+id/et_create_person"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="240dp"
+                        android:backgroundTint="@color/point_1"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingEnd="@dimen/spacing20"
+                        android:textSize="14dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_create_person"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_create_person" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing4"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:text="@string/person"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintBottom_toBottomOf="@id/et_create_person"
+                        app:layout_constraintEnd_toEndOf="@+id/et_create_person"
+                        app:layout_constraintTop_toTopOf="@id/et_create_person" />
+
+                    <TextView
+                        android:id="@+id/tv_create_closing_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing24"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_closing_date"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/et_create_person"
+                        app:layout_constraintTop_toBottomOf="@+id/et_create_person" />
+
+                    <EditText
+                        android:id="@+id/et_create_closing_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="130dp"
+                        android:backgroundTint="@color/point_1"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:inputType="date"
+                        android:maxLines="1"
+                        android:paddingEnd="@dimen/spacing20"
+                        android:textSize="14dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_create_closing_date"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_create_closing_date" />
+
+                    <ImageView
+                        android:id="@+id/iv_create_closing_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing4"
+                        android:src="@drawable/ic_create_calendar"
+                        app:layout_constraintBottom_toBottomOf="@+id/et_create_closing_date"
+                        app:layout_constraintEnd_toEndOf="@+id/et_create_closing_date"
+                        app:layout_constraintTop_toTopOf="@+id/et_create_closing_date" />
+
+                    <TextView
+                        android:id="@+id/tv_create_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing24"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_category"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/et_create_closing_date"
+                        app:layout_constraintTop_toBottomOf="@+id/et_create_closing_date" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/cg_create_category"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginEnd="70dp"
+                        app:chipSpacing="7dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tv_create_category"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_create_category"
+                        app:singleSelection="false">
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Style.Material3.Chip.Coffeeing.Type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="@string/coffeeing_type_barista_original"
+                            android:textSize="7dp" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Style.Material3.Chip.Coffeeing.Type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="@string/coffeeing_type_local_area"
+                            android:textSize="7dp" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Style.Material3.Chip.Coffeeing.Type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="@string/coffeeing_type_hot_place"
+                            android:textSize="7dp" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Style.Material3.Chip.Coffeeing.Type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="@string/coffeeing_type_professional"
+                            android:textSize="7dp" />
+
+                        <com.google.android.material.chip.Chip
+                            style="@style/Style.Material3.Chip.Coffeeing.Type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanskr_bold"
+                            android:text="@string/coffeeing_type_beginner"
+                            android:textSize="7dp" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        android:id="@+id/tv_create_context"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing24"
+                        android:fontFamily="@font/notosanskr_bold"
+                        android:text="@string/create_context"
+                        android:textColor="@color/point_1"
+                        android:textSize="14dp"
+                        app:layout_constraintStart_toStartOf="@+id/cg_create_category"
+                        app:layout_constraintTop_toBottomOf="@+id/cg_create_category" />
+
+                    <EditText
+                        android:id="@+id/et_create_context"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_marginHorizontal="19dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/rect_point_1_stroke_radius_5"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:gravity="top"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="7dp"
+                        android:textSize="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_create_context" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_apply_coffeeing"
+                style="@style/Widget.Material.Button.Basic"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fadeScrollbars="false"
-                android:gravity="start|top"
-                android:inputType="textMultiLine"
-                android:maxLines="10"
-                android:scrollbarSize="10dp"
-                android:scrollbarStyle="insideOverlay"
-                android:scrollbars="vertical"
-                android:hint="@string/coffeeing_dummyString"
-                android:padding="20dp"/>
+                android:layout_marginBottom="13dp"
+                android:background="@drawable/rect_point_1_radius_15"
+                android:elevation="4dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="8dp"
+                android:text="@string/coffeeing_create"
+                android:textColor="@color/point_3"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        </ScrollView>
-
-        <android.widget.Button
-            android:id="@+id/submitButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:text="@string/coffeeing_submit"
-            android:textColor="@color/white"
-            android:background="@drawable/custom_button_background"
-            app:layout_constraintTop_toBottomOf="@id/descriptionEdit"
-            app:layout_constraintBottom_toBottomOf="parent"  />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</layout>
