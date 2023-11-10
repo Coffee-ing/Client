@@ -9,51 +9,51 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ItemHomeCoffeeingBinding
-import com.coffeeing.client.domain.model.Coffeeing
+import com.coffeeing.client.domain.model.HomeCoffeeing
 import com.coffeeing.client.util.ItemDiffCallback
 
 class HomeCoffeeingAdapter(
-    private val moveToDetail: (Coffeeing) -> Unit
-) : ListAdapter<Coffeeing, HomeCoffeeingAdapter.HomeCoffeeingViewHolder>(
-    ItemDiffCallback<Coffeeing>(
-        onItemsTheSame = { old, new -> old.coffeeingId == new.coffeeingId },
+    private val moveToDetail: (Int) -> Unit
+) : ListAdapter<HomeCoffeeing, HomeCoffeeingAdapter.HomeCoffeeingViewHolder>(
+    ItemDiffCallback<HomeCoffeeing>(
+        onItemsTheSame = { old, new -> old.id == new.id },
         onContentsTheSame = { old, new -> old == new }
     )
 ) {
     class HomeCoffeeingViewHolder(
         private val binding: ItemHomeCoffeeingBinding,
         private val context: Context,
-        private val moveToDetail: (Coffeeing) -> Unit
+        private val moveToDetail: (Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(coffeeing: Coffeeing) {
+        fun onBind(home: HomeCoffeeing) {
             with(binding) {
-                if (coffeeing.isBaristaOriginal) chipItemHomeCoffeeingBaristaOriginal.visibility =
+                if (home.tag == "original") chipItemHomeCoffeeingBaristaOriginal.visibility =
                     View.VISIBLE
                 else chipItemHomeCoffeeingBaristaOriginal.visibility = View.GONE
-                if (coffeeing.isLocalArea) chipItemHomeCoffeeingLocalArea.visibility = View.VISIBLE
+                if (home.tag == "friend") chipItemHomeCoffeeingLocalArea.visibility = View.VISIBLE
                 else chipItemHomeCoffeeingLocalArea.visibility = View.GONE
-                if (coffeeing.isHotPlace) chipItemHomeCoffeeingHotPlace.visibility = View.VISIBLE
+                if (home.tag == "tour") chipItemHomeCoffeeingHotPlace.visibility = View.VISIBLE
                 else chipItemHomeCoffeeingHotPlace.visibility = View.GONE
-                if (coffeeing.isProfessional) chipItemHomeCoffeeingProfessional.visibility =
+                if (home.tag == "worker") chipItemHomeCoffeeingProfessional.visibility =
                     View.VISIBLE
                 else chipItemHomeCoffeeingProfessional.visibility = View.GONE
-                if (coffeeing.isBeginner) chipItemHomeCoffeeingBeginner.visibility = View.VISIBLE
+                if (home.tag == "beginner") chipItemHomeCoffeeingBeginner.visibility = View.VISIBLE
                 else chipItemHomeCoffeeingBeginner.visibility = View.GONE
 
-                ivItemHomeCoffeeing.load(coffeeing.coffeeingImg)
-                tvItemHomeCoffeeingTitle.text = coffeeing.title
-                tvItemHomeCoffeeingLocation.text = coffeeing.location
-                tvItemHomeCoffeeingTime.text = coffeeing.time
+                ivItemHomeCoffeeing.load(home.image)
+                tvItemHomeCoffeeingTitle.text = home.title
+                tvItemHomeCoffeeingLocation.text = home.district
+                tvItemHomeCoffeeingTime.text = home.meetTime
                 tvItemHomeCoffeeingPerson.text =
-                    context.getString(R.string.home_coffeeing_person, coffeeing.person)
+                    context.getString(R.string.home_coffeeing_person, home.numPeople)
 
-                tvItemHomeCoffeeingHeart.text = coffeeing.heartCount.toString()
+                tvItemHomeCoffeeingHeart.text = home.like.toString()
 
-                if (coffeeing.isHearted) ivItemHomeCoffeeingHeart.setImageResource(R.drawable.ic_home_fill_heart)
+                if (home.iflike) ivItemHomeCoffeeingHeart.setImageResource(R.drawable.ic_home_fill_heart)
                 else ivItemHomeCoffeeingHeart.setImageResource(R.drawable.ic_home_stroke_heart)
 
                 root.setOnClickListener {
-                    moveToDetail(coffeeing)
+                    moveToDetail(home.id)
                 }
             }
         }
