@@ -4,7 +4,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.0'
-    id 'com.google.firebase.crashlytics'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -74,4 +74,7 @@ dependencies {
 
     // Coil
     implementation 'io.coil-kt:coil:2.4.0'
+
+    // ConcatAdapter
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
 }

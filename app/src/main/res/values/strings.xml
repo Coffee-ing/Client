@@ -16,6 +16,33 @@
     <string name="home_sort_popularity">인기순</string>
     <string name="home_sort_deadline">마감임박 순</string>
 
+    <!-- coffeeing create -->
+    <string name="coffeeing_create">커핑 주최하기</string>
+    <string name="create_coffeeing">새 커핑 주최하기</string>
+    <string name="create_title">커핑 제목</string>
+    <string name="create_location">모임 장소</string>
+    <string name="create_day_date">정기모임 날짜 및 시간</string>
+    <string name="create_person">모집 인원</string>
+    <string name="person">명</string>
+    <string name="create_closing_date">모집 마감 일자</string>
+    <string name="create_category">카테고리 선택</string>
+    <string name="create_context">소개글 작성</string>
+
+    <!-- dialog -->
+    <string name="dialog_confirm">확인</string>
+    <string name="dialog_title">[%s]</string>
+    <string name="dialog_create_context">등록 완료되었습니다.\n등록 내역은 ‘마이페이지’에서 확인해주세요</string>
+    <string name="dialog_submit_context">신청 완료되었습니다.\n신청내역은 ‘마이페이지’에서 확인해주세요</string>
+
+    <!-- detail -->
+    <string name="detail_title">상세 커핑 조회하기</string>
+    <string name="detail_host">호스트</string>
+    <string name="detail_count_title">커핑 모집 횟수</string>
+    <string name="detail_count">%d회</string>
+    <string name="detail_coffeeing_intro">커핑소개</string>
+    <string name="detail_countdown">모집 마감일자</string>
+    <string name="detail_coffeeing_submit">커핑 신청하기</string>
+
     <!-- mypage -->
     <string name="mypage_main_title">마이페이지</string>
     <string name="chip_item_mypage_high_acidity">높은 산미</string>

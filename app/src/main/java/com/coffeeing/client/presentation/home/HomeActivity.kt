@@ -1,10 +1,14 @@
 package com.coffeeing.client.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityHomeBinding
+import com.coffeeing.client.domain.model.Coffeeing
+import com.coffeeing.client.presentation.create.CreateActivity
+import com.coffeeing.client.presentation.detail.DetailActivity
 import com.coffeeing.client.presentation.type.HomeSortType
 import com.coffeeing.client.util.binding.BindingActivity
 
@@ -22,7 +26,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     }
 
     private fun initLayout() {
-        homeCoffeeingAdapter = HomeCoffeeingAdapter()
+        homeCoffeeingAdapter = HomeCoffeeingAdapter(::moveToDetail)
         binding.rvHomeCoffeeing.adapter = homeCoffeeingAdapter
         homeCoffeeingAdapter.submitList(viewModel.mockHomeCoffeeingList)
 
@@ -37,6 +41,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     private fun addListeners() {
         binding.layoutHomeSort.setOnClickListener {
             showHomeSortDialog()
+        }
+
+        binding.tvHomeAddCoffeeing.setOnClickListener {
+            moveToCreate()
         }
     }
 
@@ -56,7 +64,21 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         }
     }
 
+    private fun moveToCreate() {
+        Intent(this@HomeActivity, CreateActivity::class.java).apply {
+            startActivity(this)
+        }
+    }
+
+    private fun moveToDetail(coffeeing: Coffeeing) {
+        Intent(this, DetailActivity::class.java).apply {
+            putExtra(COFFEEING, coffeeing.toParcelizeCoffeeing())
+            startActivity(this)
+        }
+    }
+
     companion object {
         const val HOME_SORT_DIALOG = "homeSortDialog"
+        const val COFFEEING = "coffeeing"
     }
 }

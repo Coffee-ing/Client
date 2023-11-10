@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/rect_radius_10"
+            android:backgroundTint="@color/dialog_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_dialog_coffeeing_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="[용산구 20대 커피모임]" />
+
+            <TextView
+                android:id="@+id/tv_dialog_coffeeing_context"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing20"
+                android:fontFamily="@font/notosanskr_bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_dialog_coffeeing_title"
+                tools:text="등록 완료되었습니다.\n등록 내역은 '마이페이지'에서 확인해주세요." />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_dialog_coffeeing"
+                style="@style/Widget.Material.Button.Basic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rect_point_1_radius_15"
+                android:fontFamily="@font/notosanskr_bold"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="6dp"
+                android:text="@string/dialog_confirm"
+                android:textColor="@color/point_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_dialog_coffeeing_context" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
