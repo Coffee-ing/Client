@@ -49,10 +49,11 @@
     <string name="chip_item_mypage_mood_cafe">분위기 좋은 카페</string>
     <string name="chip_item_mypage_coffee_chat">커피챗</string>
     <string name="chip_item_mypage_insider_group">외향 모임</string>
-    <string name="mypage_profile_name">커피조아</string>
+    <string name="chip_mypage_category_plus">+</string>
     <string name="mypage_profile_name_sub">님,</string>
     <string name="mypage_profile_name_mention">오늘도 향긋한 하루 되세요!</string>
     <string name="mypage_host_title">주최한 커핑</string>
     <string name="mypage_apply_title">신청한 커핑</string>
     <string name="mypage_like_title">찜한 커핑</string>
+    <string name="mypage_favorite_title">님의 취향/관심분야는?</string>
 </resources>
