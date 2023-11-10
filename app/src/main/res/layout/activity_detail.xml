@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.coffeeing.client.presentation.detail.DetailViewModel" />
     </data>
 
     <ScrollView
