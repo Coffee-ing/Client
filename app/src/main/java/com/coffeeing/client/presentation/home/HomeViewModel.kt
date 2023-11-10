@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.coffeeing.client.domain.model.HomeCoffeeing
-import com.coffeeing.client.domain.repository.HomeRepository
+import com.coffeeing.client.domain.repository.MainRepository
 import com.coffeeing.client.presentation.type.HomeSortType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeRepository: HomeRepository
+    private val homeRepository: MainRepository
 ) : ViewModel() {
     private var _homeSort = MutableLiveData(HomeSortType.RECENT)
     val homeSort get() = _homeSort

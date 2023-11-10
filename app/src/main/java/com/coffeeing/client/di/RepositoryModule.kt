@@ -1,9 +1,9 @@
 package com.coffeeing.client.di
 
 import com.coffeeing.client.data.repository.DummyRepositoryImpl
-import com.coffeeing.client.data.repository.HomeRepositoryImpl
+import com.coffeeing.client.data.repository.MainRepositoryImpl
 import com.coffeeing.client.domain.repository.DummyRepository
-import com.coffeeing.client.domain.repository.HomeRepository
+import com.coffeeing.client.domain.repository.MainRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -21,7 +21,7 @@ interface RepositoryModule {
 
     @Singleton
     @Binds
-    fun bindHomeRepository(
-        homeRepositoryImpl: HomeRepositoryImpl
-    ): HomeRepository
+    fun bindMainRepository(
+        mainRepositoryImpl: MainRepositoryImpl
+    ): MainRepository
 }

@@ -1,7 +1,7 @@
 package com.coffeeing.client.di
 
 import com.coffeeing.client.data.service.DummyService
-import com.coffeeing.client.data.service.HomeService
+import com.coffeeing.client.data.service.MainService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +19,6 @@ object ServiceModule {
 
     @Singleton
     @Provides
-    fun provideHomeService(retrofit: Retrofit): HomeService =
-        retrofit.create(HomeService::class.java)
+    fun provideHomeService(retrofit: Retrofit): MainService =
+        retrofit.create(MainService::class.java)
 }

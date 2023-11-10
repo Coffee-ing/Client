@@ -5,7 +5,7 @@ import com.coffeeing.client.data.model.response.ResponseHomeList
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface HomeService {
+interface MainService {
     @GET("list")
     suspend fun getHomeList(): ResponseHomeList
 

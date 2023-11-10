@@ -3,7 +3,7 @@ package com.coffeeing.client.presentation.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.coffeeing.client.domain.model.DetailCoffeeing
-import com.coffeeing.client.domain.repository.HomeRepository
+import com.coffeeing.client.domain.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val homeRepository: HomeRepository
+    private val homeRepository: MainRepository
 ) : ViewModel() {
     private var _coffeeingDetail = MutableStateFlow<DetailCoffeeing?>(null)
     val coffeeingDetail get() = _coffeeingDetail.asStateFlow()
