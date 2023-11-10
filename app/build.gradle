@@ -7,6 +7,9 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 android {
     namespace = 'com.coffeeing.client'
     compileSdk = 33
@@ -19,6 +22,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_URL", "\"${properties["BASE_URL"]}\""
     }
 
     buildTypes {
@@ -54,6 +58,7 @@ dependencies {
     // Ktx
     implementation 'androidx.activity:activity-ktx:1.6.0'
     implementation 'androidx.fragment:fragment-ktx:1.5.3'
+    //noinspection GradleDependency
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     // Hilt
@@ -77,4 +82,7 @@ dependencies {
 
     // ConcatAdapter
     implementation "androidx.recyclerview:recyclerview:1.2.1"
+
+    // Splash
+    implementation "androidx.core:core-splashscreen:1.0.0"
 }
