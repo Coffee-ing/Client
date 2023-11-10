@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.coffeeing.client.R
-import com.coffeeing.client.databinding.ItemHomeCoffeeingBinding
 import com.coffeeing.client.databinding.ItemMypageCoffeeingBinding
 import com.coffeeing.client.domain.model.Coffeeing
 import com.coffeeing.client.util.ItemDiffCallback
 
-class MypageCoffeeingAdapter : ListAdapter<Coffeeing, MypageCoffeeingAdapter.HomeCoffeeingViewHolder>(
-    ItemDiffCallback<Coffeeing>(
-        onItemsTheSame = { old, new -> old.coffeeingId == new.coffeeingId },
-        onContentsTheSame = { old, new -> old == new }
-    )
-) {
+class MypageCoffeeingAdapter :
+    ListAdapter<Coffeeing, MypageCoffeeingAdapter.HomeCoffeeingViewHolder>(
+        ItemDiffCallback<Coffeeing>(
+            onItemsTheSame = { old, new -> old.coffeeingId == new.coffeeingId },
+            onContentsTheSame = { old, new -> old == new }
+        )
+    ) {
     class HomeCoffeeingViewHolder(
         private val binding: ItemMypageCoffeeingBinding,
         private val context: Context
@@ -35,7 +35,7 @@ class MypageCoffeeingAdapter : ListAdapter<Coffeeing, MypageCoffeeingAdapter.Hom
                 if (coffeeing.isProfessional) chipItemHomeCoffeeingProfessional.visibility =
                     View.VISIBLE
                 else chipItemHomeCoffeeingProfessional.visibility = View.GONE
-                if (coffeeing.isBiginner) chipItemHomeCoffeeingBeginner.visibility = View.VISIBLE
+                if (coffeeing.isBeginner) chipItemHomeCoffeeingBeginner.visibility = View.VISIBLE
                 else chipItemHomeCoffeeingBeginner.visibility = View.GONE
 
                 ivItemHomeCoffeeing.load(coffeeing.coffeeingImg)

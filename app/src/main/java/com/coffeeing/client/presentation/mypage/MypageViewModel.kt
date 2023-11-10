@@ -1,9 +1,7 @@
 package com.coffeeing.client.presentation.mypage
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.coffeeing.client.domain.model.Coffeeing
-import com.coffeeing.client.presentation.type.HomeSortType
 
 class MypageViewModel : ViewModel() {
 
@@ -21,7 +19,10 @@ class MypageViewModel : ViewModel() {
             isLocalArea = true,
             isHotPlace = false,
             isProfessional = false,
-            isBiginner = true
+            isBeginner = true,
+            closingDate = "2023-11-10",
+            context = "안녕하세요 용산커피대장입니다. 엄마만 손을 2024년 그 운동과 이것이, 도통하여요. 2022년 없다 것 날 부상당하다 결국은 태도가 중 갈아입는 미덕이, 보급되다. 되는 상하의 체중을 방문이게 아니라 거듭 전체로 직업병은 86개 정복하다. 거절한 희생을 거 일어나는 시도한 이제에 사람에 지불되다. 아니 듣은, 그, 작품은 함께 말은 텃밭은 열심히 있으니까 가계성을 생기어.",
+            writer = Coffeeing.Writer(nickname = "용산커피대장", numberOfRecruit = 6)
         ),
         Coffeeing(
             coffeeingId = 2,
@@ -36,7 +37,10 @@ class MypageViewModel : ViewModel() {
             isLocalArea = true,
             isHotPlace = true,
             isProfessional = false,
-            isBiginner = true
+            isBeginner = true,
+            closingDate = "2023-11-16",
+            context = "안녕하세요",
+            writer = Coffeeing.Writer(nickname = "연남동", numberOfRecruit = 1)
         ),
         Coffeeing(
             coffeeingId = 3,
@@ -51,7 +55,10 @@ class MypageViewModel : ViewModel() {
             isLocalArea = true,
             isHotPlace = false,
             isProfessional = false,
-            isBiginner = true
+            isBeginner = true,
+            closingDate = "2023-11-17",
+            context = "ㅋㅋ",
+            writer = Coffeeing.Writer(nickname = "신촌대장", numberOfRecruit = 3)
         )
     )
 }
