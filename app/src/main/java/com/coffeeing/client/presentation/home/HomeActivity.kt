@@ -9,6 +9,7 @@ import com.coffeeing.client.databinding.ActivityHomeBinding
 import com.coffeeing.client.domain.model.Coffeeing
 import com.coffeeing.client.presentation.create.CreateActivity
 import com.coffeeing.client.presentation.detail.DetailActivity
+import com.coffeeing.client.presentation.mypage.MypageActivity
 import com.coffeeing.client.presentation.type.HomeSortType
 import com.coffeeing.client.util.binding.BindingActivity
 
@@ -46,6 +47,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         binding.tvHomeAddCoffeeing.setOnClickListener {
             moveToCreate()
         }
+
+        binding.ivHomeMyPage.setOnClickListener {
+            moveToMypage()
+        }
     }
 
     private fun addObservers() {
@@ -73,6 +78,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     private fun moveToDetail(coffeeing: Coffeeing) {
         Intent(this, DetailActivity::class.java).apply {
             putExtra(COFFEEING, coffeeing.toParcelizeCoffeeing())
+            startActivity(this)
+        }
+    }
+
+    private fun moveToMypage() {
+        Intent(this@HomeActivity, MypageActivity::class.java).apply {
             startActivity(this)
         }
     }
