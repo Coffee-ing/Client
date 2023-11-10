@@ -1,19 +1,17 @@
 package com.coffeeing.client.presentation.mypage
 
-import android.graphics.Rect
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.RecyclerView
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityMyPageBinding
-import com.coffeeing.client.presentation.home.HomeSortBottomSheetDialog
 import com.coffeeing.client.util.binding.BindingActivity
 
 
 class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_my_page) {
     private val viewModel: MypageViewModel by viewModels()
-    lateinit var mypageCoffeeingAdapter: MypageCoffeeingAdapter
+    private lateinit var mypageHostCoffeeingAdapter: MypageCoffeeingAdapter
+    private lateinit var mypageApplyCoffeeingAdapter: MypageCoffeeingAdapter
+    private lateinit var mypageLikeCoffeeingAdapter: MypageCoffeeingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,10 +21,25 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
     }
 
     private fun initLayout() {
-        mypageCoffeeingAdapter = MypageCoffeeingAdapter()
-        binding.rvMypageHostCoffeeing.adapter = mypageCoffeeingAdapter
-        binding.rvMypageApplyCoffeeing.adapter = mypageCoffeeingAdapter
-        binding.rvMypageLikeCoffeeing.adapter = mypageCoffeeingAdapter
-        mypageCoffeeingAdapter.submitList(viewModel.mockHomeCoffeeingList)
+        mypageHostCoffeeingAdapter = MypageCoffeeingAdapter()
+        mypageApplyCoffeeingAdapter = MypageCoffeeingAdapter()
+        mypageLikeCoffeeingAdapter = MypageCoffeeingAdapter()
+
+        binding.rvMypageHostCoffeeing.adapter = mypageHostCoffeeingAdapter
+        binding.rvMypageApplyCoffeeing.adapter = mypageApplyCoffeeingAdapter
+        binding.rvMypageLikeCoffeeing.adapter = mypageLikeCoffeeingAdapter
+
+        mypageHostCoffeeingAdapter.submitList(viewModel.mockHomeCoffeeingList)
+        mypageApplyCoffeeingAdapter.submitList(viewModel.mockHomeCoffeeingList)
+        mypageLikeCoffeeingAdapter.submitList(viewModel.mockHomeCoffeeingList)
+
+        with(binding) {
+            tvMypageProfileName.text = NICKNAME
+            tvMypageFavoriteTitleName.text = NICKNAME
+        }
+    }
+
+    companion object {
+        const val NICKNAME = "커피조아"
     }
 }
