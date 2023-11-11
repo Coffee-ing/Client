@@ -9,6 +9,10 @@
         <variable
             name="viewModel"
             type="com.coffeeing.client.presentation.mypage.MypageViewModel" />
+
+        <variable
+            name="coffeeingMypage"
+            type="com.coffeeing.client.domain.model.CoffeeingMypage" />
     </data>
 
     <androidx.core.widget.NestedScrollView
