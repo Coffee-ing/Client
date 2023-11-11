@@ -28,4 +28,8 @@ class MainDataSource @Inject constructor(
     suspend fun postRegistration(
         postId: Int
     ): ResponseRegistration = mainService.postRegistration(postId)
+
+    suspend fun getSearch(
+        keyword: String
+    ): ResponseHomeList = mainService.getSearch(keyword)
 }

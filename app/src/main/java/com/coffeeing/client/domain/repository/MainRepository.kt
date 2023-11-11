@@ -23,4 +23,8 @@ interface MainRepository {
     suspend fun postRegistration(
         postId: Int
     ): Result<Registration>
+
+    suspend fun getSearch(
+        keyword: String
+    ): Result<List<HomeCoffeeing>>
 }

@@ -62,6 +62,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         binding.ivHomeMyPage.setOnClickListener {
             moveToMypage()
         }
+
+        binding.ivHomeSearch.setOnClickListener {
+            viewModel.getSearch(binding.etHomeSearch.text.toString())
+        }
     }
 
     private fun addObservers() {
@@ -74,7 +78,6 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     private fun collectData() {
         viewModel.homeList.flowWithLifecycle(lifecycle).onEach {
             homeCoffeeingAdapter.submitList(viewModel.homeList.value)
-            viewModel.getHomeList()
 
             if (viewModel.homeList.value.isNullOrEmpty()) {
                 binding.rvHomeCoffeeing.visibility = View.INVISIBLE

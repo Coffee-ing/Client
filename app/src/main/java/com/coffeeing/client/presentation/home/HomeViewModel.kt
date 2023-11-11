@@ -41,6 +41,18 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun getSearch(keyword: String) {
+        viewModelScope.launch {
+            mainRepository.getSearch(keyword)
+                .onSuccess {
+                    _homeList.value = it
+                }
+                .onFailure { exception ->
+                    Timber.e(exception.message)
+                }
+        }
+    }
+
     fun postLike(postId: Int) {
         viewModelScope.launch {
             mainRepository.postLike(postId)
