@@ -10,6 +10,7 @@ import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityDetailBinding
 import com.coffeeing.client.presentation.create.CreateActivity.Companion.DIALOG
 import com.coffeeing.client.presentation.home.HomeActivity.Companion.ID
+import com.coffeeing.client.util.UiState
 import com.coffeeing.client.util.binding.BindingActivity
 import com.coffeeing.client.util.binding.BindingCoffeeingDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,7 +42,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         }
 
         binding.btnDetailSubmit.setOnClickListener {
-            showDialog()
+            viewModel.postRegistration(intent.getIntExtra(ID, 0))
         }
 
         binding.ivDetailLikeButton.setOnClickListener {
@@ -56,6 +57,16 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
 
         viewModel.likeState.flowWithLifecycle(lifecycle).onEach { like ->
             viewModel.getCoffeeingDetail(intent.getIntExtra(ID, 0))
+        }.launchIn(lifecycleScope)
+
+        viewModel.registrationState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Success -> {
+                    showDialog()
+                }
+
+                else -> {}
+            }
         }.launchIn(lifecycleScope)
     }
 
