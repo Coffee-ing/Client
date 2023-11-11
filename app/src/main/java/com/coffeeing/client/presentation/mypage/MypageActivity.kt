@@ -2,7 +2,6 @@ package com.coffeeing.client.presentation.mypage
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -10,19 +9,16 @@ import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityMyPageBinding
 import com.coffeeing.client.presentation.detail.DetailActivity
 import com.coffeeing.client.presentation.home.HomeActivity
-import com.coffeeing.client.util.UiState
 import com.coffeeing.client.util.binding.BindingActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-
+@AndroidEntryPoint
 class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_my_page) {
     private val viewModel: MypageViewModel by viewModels()
-    private lateinit var mypageHostCoffeeingAdapter: MypageCoffeeingAdapter
-    private lateinit var mypageApplyCoffeeingAdapter: MypageCoffeeingAdapter
-    private lateinit var mypageLikeCoffeeingAdapter: MypageCoffeeingAdapter
-
     lateinit var mypageCoffeeingAdapter: MypageCoffeeingAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,14 +31,9 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
     private fun initLayout() {
         viewModel.getMyclubList()
 
-        mypageHostCoffeeingAdapter = MypageCoffeeingAdapter(::moveToDetail)
-
-
-        binding.rvMypageHostCoffeeing.adapter = mypageHostCoffeeingAdapter
-
-
-        mypageHostCoffeeingAdapter.submitList(viewModel.myclubList.value)
-
+        mypageCoffeeingAdapter = MypageCoffeeingAdapter(::moveToDetail)
+        binding.rvMypageHostCoffeeing.adapter = mypageCoffeeingAdapter
+        mypageCoffeeingAdapter.submitList(viewModel.myclubList.value)
 
         with(binding) {
             tvMypageProfileName.text = NICKNAME
@@ -56,6 +47,7 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
             startActivity(this)
         }
     }
+
     private fun collectData() {
         viewModel.myclubList.flowWithLifecycle(lifecycle).onEach {
             mypageCoffeeingAdapter.submitList(viewModel.myclubList.value)

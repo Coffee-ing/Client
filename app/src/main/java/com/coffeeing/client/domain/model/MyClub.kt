@@ -1,6 +1,7 @@
 package com.coffeeing.client.domain.model
 
 data class MyClub(
+    val club_id: String,
     val id: Int,
     val image: String,
     val title: String,
@@ -15,4 +16,4 @@ data class MyClub(
     val like: Int,
     val iflike: Boolean,
     val tag: String
-    )
+)
