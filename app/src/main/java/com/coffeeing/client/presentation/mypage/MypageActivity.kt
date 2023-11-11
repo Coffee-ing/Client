@@ -26,6 +26,7 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
 
         binding.viewModel = viewModel
 
+        addListeners()
         initLayout()
         collectData()
     }
@@ -35,6 +36,7 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
             finish()
         }
     }
+
     private fun initLayout() {
         viewModel.getMyclubList()
         viewModel.getMyapplyList()
