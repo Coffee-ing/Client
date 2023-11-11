@@ -31,4 +31,8 @@ interface MainRepository {
     suspend fun getSort(
         sort: String
     ): Result<List<HomeCoffeeing>>
+
+    suspend fun getFilter(
+        tag: String
+    ): Result<List<HomeCoffeeing>>
 }

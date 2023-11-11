@@ -44,4 +44,8 @@ class MainRepositoryImpl @Inject constructor(
     override suspend fun getSort(sort: String): Result<List<HomeCoffeeing>> = runCatching {
         mainDataSource.getSort(sort).toHomeList()
     }
+
+    override suspend fun getFilter(tag: String): Result<List<HomeCoffeeing>> = runCatching {
+        mainDataSource.getFilter(tag).toHomeList()
+    }
 }

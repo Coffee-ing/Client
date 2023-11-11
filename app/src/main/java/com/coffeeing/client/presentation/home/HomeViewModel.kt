@@ -24,6 +24,8 @@ class HomeViewModel @Inject constructor(
     val homeList get() = _homeList.asStateFlow()
     private val _likeState = MutableStateFlow<Like?>(null)
     val likeState get() = _likeState.asStateFlow()
+    private val _filterType = MutableStateFlow<String?>(null)
+    val filterType get() = _filterType.asStateFlow()
 
     fun setHomeSort(homeSortType: HomeSortType) {
         _homeSort.value = homeSortType
@@ -65,6 +67,18 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun getFilter(tag: String) {
+        viewModelScope.launch {
+            mainRepository.getFilter(tag)
+                .onSuccess {
+                    _homeList.value = it
+                }
+                .onFailure { exception ->
+                    Timber.e(exception.message)
+                }
+        }
+    }
+
     fun postLike(postId: Int) {
         viewModelScope.launch {
             mainRepository.postLike(postId)
@@ -75,5 +89,9 @@ class HomeViewModel @Inject constructor(
                     Timber.e(throwable.message)
                 }
         }
+    }
+
+    fun setFilterType(tag: String) {
+        _filterType.value = tag
     }
 }

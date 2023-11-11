@@ -46,4 +46,9 @@ interface MainService {
     suspend fun getSort(
         @Query("sort") sort: String
     ): ResponseHomeList
+
+    @GET("filter")
+    suspend fun getFilter(
+        @Query("tag") tag: String
+    ): ResponseHomeList
 }

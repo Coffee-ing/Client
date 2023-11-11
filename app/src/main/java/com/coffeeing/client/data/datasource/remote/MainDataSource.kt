@@ -36,4 +36,8 @@ class MainDataSource @Inject constructor(
     suspend fun getSort(
         sort: String
     ): ResponseHomeList = mainService.getSort(sort)
+
+    suspend fun getFilter(
+        tag: String
+    ): ResponseHomeList = mainService.getFilter(tag)
 }

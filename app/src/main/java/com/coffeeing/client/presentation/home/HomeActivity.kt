@@ -66,6 +66,17 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         binding.ivHomeSearch.setOnClickListener {
             viewModel.getSearch(binding.etHomeSearch.text.toString())
         }
+
+        binding.cgHomeCoffeeingTypeFilter.setOnCheckedChangeListener { _, checkedId ->
+            when (binding.cgHomeCoffeeingTypeFilter.checkedChipId) {
+                R.id.chip_home_coffeeing_original -> viewModel.setFilterType("original")
+                R.id.chip_home_coffeeing_friend -> viewModel.setFilterType("friend")
+                R.id.chip_home_coffeeing_tour -> viewModel.setFilterType("tour")
+                R.id.chip_home_coffeeing_worker -> viewModel.setFilterType("worker")
+                R.id.chip_home_coffeeing_beginner -> viewModel.setFilterType("beginner")
+                else -> viewModel.setFilterType("original")
+            }
+        }
     }
 
     private fun addObservers() {
@@ -90,6 +101,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
 
         viewModel.likeState.flowWithLifecycle(lifecycle).onEach {
             viewModel.getHomeList()
+        }.launchIn(lifecycleScope)
+
+        viewModel.filterType.flowWithLifecycle(lifecycle).onEach {
+            viewModel.filterType.value?.let { tag ->
+                viewModel.getFilter(tag)
+            }
         }.launchIn(lifecycleScope)
     }
 
