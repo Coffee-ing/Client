@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeRepository: MainRepository
+    private val mainRepository: MainRepository
 ) : ViewModel() {
     private var _homeSort = MutableLiveData(HomeSortType.RECENT)
     val homeSort get() = _homeSort
@@ -31,7 +31,7 @@ class HomeViewModel @Inject constructor(
 
     fun getHomeList() {
         viewModelScope.launch {
-            homeRepository.getHomeList()
+            mainRepository.getHomeList()
                 .onSuccess {
                     _homeList.value = it
                 }
@@ -43,7 +43,7 @@ class HomeViewModel @Inject constructor(
 
     fun postLike(postId: Int) {
         viewModelScope.launch {
-            homeRepository.postLike(postId)
+            mainRepository.postLike(postId)
                 .onSuccess { like ->
                     _likeState.value = like
                 }
