@@ -91,8 +91,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     }
 
     private fun moveToCreate() {
-        Intent(this@HomeActivity, CreateActivity::class.java).apply {
-            startActivity(this)
+        val lastItem = viewModel.homeList.value?.lastOrNull()
+        if (lastItem != null) {
+            Intent(this@HomeActivity, CreateActivity::class.java).apply {
+                putExtra(ID, lastItem.id)
+                startActivity(this)
+            }
         }
     }
 

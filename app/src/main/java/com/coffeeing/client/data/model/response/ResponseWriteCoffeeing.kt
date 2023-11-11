@@ -1,45 +1,35 @@
 package com.coffeeing.client.data.model.response
 
-import com.coffeeing.client.domain.model.DetailCoffeeing
+import com.coffeeing.client.domain.model.WriteCoffeeing
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ResponseCoffeeingDetail(
-    val id: Int,
-    val image: String?,
+data class ResponseWriteCoffeeing(
     val title: String,
-    val content: String,
-    @SerialName("num_people")
-    val numPeople: Int,
     val district: String,
     @SerialName("meet_time")
     val meetTime: String,
+    @SerialName("num_people")
+    val numPeople: Int,
     @SerialName("deadline_yy")
-    val deadlineYY: String,
+    val deadlineYY: Int,
     @SerialName("deadline_mm")
     val deadlineMM: String,
     @SerialName("deadline_dd")
     val deadlineDD: String,
-    val organizer: String,
-    val like: Int,
-    val iflike: Boolean,
-    val tag: String
+    val tag: String,
+    val content: String
 ) {
-    fun toDetailCoffeeing() = DetailCoffeeing(
-        id = this.id,
-        image = this.image,
+    fun toWriteCoffeeing() = WriteCoffeeing(
         title = this.title,
-        content = this.content,
-        numPeople = this.numPeople,
         district = this.district,
         meetTime = this.meetTime,
+        numPeople = this.numPeople,
         deadlineYY = this.deadlineYY,
         deadlineMM = this.deadlineMM,
         deadlineDD = this.deadlineDD,
-        organizer = this.organizer,
-        like = this.like,
-        iflike = this.iflike,
-        tag = this.tag
+        tag = this.tag,
+        content = this.content
     )
 }

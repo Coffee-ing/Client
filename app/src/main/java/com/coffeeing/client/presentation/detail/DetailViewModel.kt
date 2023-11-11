@@ -13,14 +13,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val homeRepository: MainRepository
+    private val mainRepository: MainRepository
 ) : ViewModel() {
     private var _coffeeingDetail = MutableStateFlow<DetailCoffeeing?>(null)
     val coffeeingDetail get() = _coffeeingDetail.asStateFlow()
 
     fun getCoffeeingDetail(postId: Int) {
         viewModelScope.launch {
-            homeRepository.getCoffeeingDetail(postId)
+            mainRepository.getCoffeeingDetail(postId)
                 .onSuccess {
                     _coffeeingDetail.value = it
                 }

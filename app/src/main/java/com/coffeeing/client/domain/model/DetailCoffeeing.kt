@@ -2,7 +2,7 @@ package com.coffeeing.client.domain.model
 
 data class DetailCoffeeing(
     val id: Int,
-    val image: String,
+    val image: String?,
     val title: String,
     val content: String,
     val numPeople: Int,
