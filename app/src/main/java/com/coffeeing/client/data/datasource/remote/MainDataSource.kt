@@ -32,4 +32,8 @@ class MainDataSource @Inject constructor(
     suspend fun getSearch(
         keyword: String
     ): ResponseHomeList = mainService.getSearch(keyword)
+
+    suspend fun getSort(
+        sort: String
+    ): ResponseHomeList = mainService.getSort(sort)
 }

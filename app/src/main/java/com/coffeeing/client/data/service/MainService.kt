@@ -41,4 +41,9 @@ interface MainService {
     suspend fun getSearch(
         @Query("keyword") keyword: String
     ): ResponseHomeList
+
+    @GET("sort")
+    suspend fun getSort(
+        @Query("sort") sort: String
+    ): ResponseHomeList
 }

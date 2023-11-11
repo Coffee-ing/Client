@@ -1,5 +1,6 @@
 package com.coffeeing.client.presentation.home
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import com.coffeeing.client.R
@@ -9,7 +10,8 @@ import com.coffeeing.client.util.binding.BindingBottomSheetDialogFragment
 
 class HomeSortBottomSheetDialog(
     private val currentSortType: HomeSortType,
-    private val sort: (HomeSortType) -> Unit
+    private val sort: (HomeSortType) -> Unit,
+    private val onDialogClosed: () -> Unit
 ) : BindingBottomSheetDialogFragment<DialogBottomHomeSortBinding>(R.layout.dialog_bottom_home_sort) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -17,6 +19,11 @@ class HomeSortBottomSheetDialog(
 
         initLayout()
         addListeners()
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        onDialogClosed.invoke()
     }
 
     private fun initLayout() {

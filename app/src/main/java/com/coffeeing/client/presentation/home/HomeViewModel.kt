@@ -53,6 +53,18 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun getSort(sort: String) {
+        viewModelScope.launch {
+            mainRepository.getSort(sort)
+                .onSuccess {
+                    _homeList.value = it
+                }
+                .onFailure { exception ->
+                    Timber.e(exception.message)
+                }
+        }
+    }
+
     fun postLike(postId: Int) {
         viewModelScope.launch {
             mainRepository.postLike(postId)

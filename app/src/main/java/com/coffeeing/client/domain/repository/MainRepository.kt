@@ -27,4 +27,8 @@ interface MainRepository {
     suspend fun getSearch(
         keyword: String
     ): Result<List<HomeCoffeeing>>
+
+    suspend fun getSort(
+        sort: String
+    ): Result<List<HomeCoffeeing>>
 }

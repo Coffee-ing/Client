@@ -71,7 +71,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     private fun addObservers() {
         viewModel.homeSort.observe(this) { homeSortType ->
             binding.tvHomeSort.text =
-                viewModel.homeSort.value?.sortType ?: HomeSortType.RECENT.sortType
+                viewModel.homeSort.value?.sortType ?: "최신순"
         }
     }
 
@@ -97,7 +97,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         viewModel.homeSort.value?.let {
             HomeSortBottomSheetDialog(
                 currentSortType = it,
-                sort = { sortType -> viewModel.setHomeSort(sortType) }
+                sort = { sortType -> viewModel.setHomeSort(sortType) },
+                onDialogClosed = {
+                    viewModel.getSort(
+                        viewModel.homeSort.value?.sortType ?: "최신순"
+                    )
+                }
             ).show(supportFragmentManager, HOME_SORT_DIALOG)
         }
     }
