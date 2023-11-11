@@ -4,6 +4,7 @@ import com.coffeeing.client.data.model.request.RequestWriteCoffeeing
 import com.coffeeing.client.data.model.response.ResponseCoffeeingDetail
 import com.coffeeing.client.data.model.response.ResponseHomeList
 import com.coffeeing.client.data.model.response.ResponseLike
+import com.coffeeing.client.data.model.response.ResponseRegistration
 import com.coffeeing.client.data.model.response.ResponseWriteCoffeeing
 import com.coffeeing.client.data.service.MainService
 import javax.inject.Inject
@@ -23,4 +24,8 @@ class MainDataSource @Inject constructor(
     suspend fun postLike(
         postId: Int
     ): ResponseLike = mainService.postLike(postId)
+
+    suspend fun postRegistration(
+        postId: Int
+    ): ResponseRegistration = mainService.postRegistration(postId)
 }
