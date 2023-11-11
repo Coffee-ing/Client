@@ -1,7 +1,6 @@
 package com.coffeeing.client.domain.model
 
 data class MyLike (
-    val club_id: String,
     val id: Int,
     val image: String,
     val title: String,

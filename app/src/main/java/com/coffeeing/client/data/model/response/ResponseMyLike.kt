@@ -1,9 +1,7 @@
 package com.coffeeing.client.data.model.response
 
-import com.coffeeing.client.domain.model.MyClub
 import com.coffeeing.client.domain.model.MyLike
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.JsonNull.content
 
 @Serializable
 data class ResponseMyLike(
@@ -11,7 +9,6 @@ data class ResponseMyLike(
 ) {
     @Serializable
     data class MyLike(
-        val club_id: String,
         val club: Club
     ) {
         @Serializable
@@ -35,7 +32,6 @@ data class ResponseMyLike(
 
     fun toMyLike() = coffeeingList.map { mylike ->
         MyLike(
-            club_id = mylike.club_id,
             id = mylike.club.id,
             image = mylike.club.image,
             title = mylike.club.title,
