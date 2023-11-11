@@ -10,6 +10,7 @@ import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityHomeBinding
 import com.coffeeing.client.presentation.create.CreateActivity
 import com.coffeeing.client.presentation.detail.DetailActivity
+import com.coffeeing.client.presentation.mypage.MypageActivity
 import com.coffeeing.client.presentation.type.HomeSortType
 import com.coffeeing.client.util.binding.BindingActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,6 +57,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
 
         binding.tvHomeAddCoffeeing.setOnClickListener {
             moveToCreate()
+        }
+
+        binding.ivHomeMyPage.setOnClickListener {
+            moveToMypage()
         }
     }
 
@@ -113,6 +118,12 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
 
     private fun postLike(postId: Int) {
         viewModel.postLike(postId)
+    }
+
+    private fun moveToMypage() {
+        Intent(this@HomeActivity, MypageActivity::class.java).apply {
+            startActivity(this)
+        }
     }
 
     companion object {
