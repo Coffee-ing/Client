@@ -3,6 +3,7 @@ package com.coffeeing.client.data.datasource.remote
 import com.coffeeing.client.data.model.request.RequestWriteCoffeeing
 import com.coffeeing.client.data.model.response.ResponseCoffeeingDetail
 import com.coffeeing.client.data.model.response.ResponseHomeList
+import com.coffeeing.client.data.model.response.ResponseLike
 import com.coffeeing.client.data.model.response.ResponseWriteCoffeeing
 import com.coffeeing.client.data.service.MainService
 import javax.inject.Inject
@@ -18,4 +19,8 @@ class MainDataSource @Inject constructor(
         postId: Int,
         requestWriteCoffeeing: RequestWriteCoffeeing
     ): ResponseWriteCoffeeing = mainService.postCoffeeing(postId, requestWriteCoffeeing)
+
+    suspend fun postLike(
+        postId: Int
+    ): ResponseLike = mainService.postLike(postId)
 }

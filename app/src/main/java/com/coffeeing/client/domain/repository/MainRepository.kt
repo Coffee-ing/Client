@@ -3,6 +3,7 @@ package com.coffeeing.client.domain.repository
 import com.coffeeing.client.data.model.request.RequestWriteCoffeeing
 import com.coffeeing.client.domain.model.DetailCoffeeing
 import com.coffeeing.client.domain.model.HomeCoffeeing
+import com.coffeeing.client.domain.model.Like
 import com.coffeeing.client.domain.model.WriteCoffeeing
 
 
@@ -13,4 +14,8 @@ interface MainRepository {
         postId: Int,
         requestWriteCoffeeing: RequestWriteCoffeeing
     ): Result<WriteCoffeeing>
+
+    suspend fun postLike(
+        postId: Int
+    ): Result<Like>
 }

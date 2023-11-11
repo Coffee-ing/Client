@@ -34,7 +34,7 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     private fun initLayout() {
         viewModel.getHomeList()
 
-        homeCoffeeingAdapter = HomeCoffeeingAdapter(::moveToDetail)
+        homeCoffeeingAdapter = HomeCoffeeingAdapter(::moveToDetail, ::postLike)
         binding.rvHomeCoffeeing.adapter = homeCoffeeingAdapter
         homeCoffeeingAdapter.submitList(viewModel.homeList.value)
 
@@ -79,6 +79,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
                 binding.layoutHomeEmpty.visibility = View.INVISIBLE
             }
         }.launchIn(lifecycleScope)
+
+        viewModel.likeState.flowWithLifecycle(lifecycle).onEach {
+            viewModel.getHomeList()
+        }.launchIn(lifecycleScope)
     }
 
     private fun showHomeSortDialog() {
@@ -105,6 +109,10 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
             putExtra(ID, id)
             startActivity(this)
         }
+    }
+
+    private fun postLike(postId: Int) {
+        viewModel.postLike(postId)
     }
 
     companion object {

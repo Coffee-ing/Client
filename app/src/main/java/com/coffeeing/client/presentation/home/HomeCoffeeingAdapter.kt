@@ -13,7 +13,8 @@ import com.coffeeing.client.domain.model.HomeCoffeeing
 import com.coffeeing.client.util.ItemDiffCallback
 
 class HomeCoffeeingAdapter(
-    private val moveToDetail: (Int) -> Unit
+    private val moveToDetail: (Int) -> Unit,
+    private val postLike: (Int) -> Unit
 ) : ListAdapter<HomeCoffeeing, HomeCoffeeingAdapter.HomeCoffeeingViewHolder>(
     ItemDiffCallback<HomeCoffeeing>(
         onItemsTheSame = { old, new -> old.id == new.id },
@@ -23,7 +24,8 @@ class HomeCoffeeingAdapter(
     class HomeCoffeeingViewHolder(
         private val binding: ItemHomeCoffeeingBinding,
         private val context: Context,
-        private val moveToDetail: (Int) -> Unit
+        private val moveToDetail: (Int) -> Unit,
+        private val postLike: (Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(home: HomeCoffeeing) {
             with(binding) {
@@ -55,6 +57,10 @@ class HomeCoffeeingAdapter(
                 root.setOnClickListener {
                     moveToDetail(home.id)
                 }
+
+                ivItemHomeCoffeeingHeart.setOnClickListener {
+                    postLike(home.id)
+                }
             }
         }
     }
@@ -62,7 +68,7 @@ class HomeCoffeeingAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCoffeeingViewHolder {
         val binding =
             ItemHomeCoffeeingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeCoffeeingViewHolder(binding, parent.context, moveToDetail)
+        return HomeCoffeeingViewHolder(binding, parent.context, moveToDetail, postLike)
     }
 
     override fun onBindViewHolder(holder: HomeCoffeeingViewHolder, position: Int) {
