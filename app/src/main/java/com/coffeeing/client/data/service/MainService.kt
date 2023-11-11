@@ -4,6 +4,7 @@ import com.coffeeing.client.data.model.request.RequestWriteCoffeeing
 import com.coffeeing.client.data.model.response.ResponseCoffeeingDetail
 import com.coffeeing.client.data.model.response.ResponseHomeList
 import com.coffeeing.client.data.model.response.ResponseLike
+import com.coffeeing.client.data.model.response.ResponseRegistration
 import com.coffeeing.client.data.model.response.ResponseWriteCoffeeing
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -29,4 +30,9 @@ interface MainService {
     suspend fun postLike(
         @Path("post_id") postId: Int
     ): ResponseLike
+
+    @GET("list/registration/{post_id}")
+    suspend fun postRegistration(
+        @Path("post_id") postId: Int
+    ): ResponseRegistration
 }
