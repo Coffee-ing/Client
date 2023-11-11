@@ -43,11 +43,19 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
         binding.btnDetailSubmit.setOnClickListener {
             showDialog()
         }
+
+        binding.ivDetailLikeButton.setOnClickListener {
+            viewModel.postLike(intent.getIntExtra(ID, 0))
+        }
     }
 
     private fun collectData() {
         viewModel.coffeeingDetail.flowWithLifecycle(lifecycle).onEach {
             bindingData()
+        }.launchIn(lifecycleScope)
+
+        viewModel.likeState.flowWithLifecycle(lifecycle).onEach { like ->
+            viewModel.getCoffeeingDetail(intent.getIntExtra(ID, 0))
         }.launchIn(lifecycleScope)
     }
 
@@ -88,7 +96,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
                 tvDetailCount.text = getString(R.string.detail_count, 3)
                 tvDetailIntroText.text = detailCoffeeing.organizer
                 tvDetailCountdownContent.text =
-                    detailCoffeeing.deadlineYY.toString() + "-" + detailCoffeeing.deadlineMM + "-" + detailCoffeeing.deadlineDD
+                    detailCoffeeing.deadlineYY + "-" + detailCoffeeing.deadlineMM + "-" + detailCoffeeing.deadlineDD
                 if (detailCoffeeing.iflike) ivDetailLikeButton.setImageResource(R.drawable.ic_home_fill_heart)
                 else ivDetailLikeButton.setImageResource(R.drawable.ic_home_stroke_heart)
             }
