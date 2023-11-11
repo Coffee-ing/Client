@@ -17,7 +17,9 @@ import kotlinx.coroutines.flow.onEach
 @AndroidEntryPoint
 class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_my_page) {
     private val viewModel: MypageViewModel by viewModels()
-    lateinit var mypageCoffeeingAdapter: MypageCoffeeingAdapter
+    lateinit var mypageCoffeeingAdapter: MypageCoffeeingClubAdapter
+    lateinit var mypageCoffeeingApplyAdapter: MypageCoffeeingApplyAdapter
+    lateinit var mypageCoffeeingLikeAdapter: MypageCoffeeingLikeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +30,27 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
         collectData()
     }
 
+    private fun addListeners() {
+        binding.ibMypageBackArrow.setOnClickListener {
+            finish()
+        }
+    }
     private fun initLayout() {
         viewModel.getMyclubList()
+        viewModel.getMyapplyList()
+        viewModel.getMylikeList()
 
-        mypageCoffeeingAdapter = MypageCoffeeingAdapter(::moveToDetail)
+        mypageCoffeeingAdapter = MypageCoffeeingClubAdapter(::moveToDetail)
         binding.rvMypageHostCoffeeing.adapter = mypageCoffeeingAdapter
         mypageCoffeeingAdapter.submitList(viewModel.myclubList.value)
+
+        mypageCoffeeingApplyAdapter = MypageCoffeeingApplyAdapter(::moveToDetail)
+        binding.rvMypageApplyCoffeeing.adapter = mypageCoffeeingApplyAdapter
+        mypageCoffeeingApplyAdapter.submitList(viewModel.myapplyList.value)
+
+        mypageCoffeeingLikeAdapter = MypageCoffeeingLikeAdapter(::moveToDetail)
+        binding.rvMypageLikeCoffeeing.adapter = mypageCoffeeingLikeAdapter
+        mypageCoffeeingLikeAdapter.submitList(viewModel.mylikeList.value)
 
         with(binding) {
             tvMypageProfileName.text = NICKNAME
@@ -51,6 +68,16 @@ class MypageActivity : BindingActivity<ActivityMyPageBinding>(R.layout.activity_
     private fun collectData() {
         viewModel.myclubList.flowWithLifecycle(lifecycle).onEach {
             mypageCoffeeingAdapter.submitList(viewModel.myclubList.value)
+            viewModel.getMyclubList()
+        }.launchIn(lifecycleScope)
+
+        viewModel.myapplyList.flowWithLifecycle(lifecycle).onEach {
+            mypageCoffeeingApplyAdapter.submitList(viewModel.myapplyList.value)
+            viewModel.getMyapplyList()
+        }.launchIn(lifecycleScope)
+
+        viewModel.mylikeList.flowWithLifecycle(lifecycle).onEach {
+            mypageCoffeeingLikeAdapter.submitList(viewModel.mylikeList.value)
             viewModel.getMyclubList()
         }.launchIn(lifecycleScope)
     }

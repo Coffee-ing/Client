@@ -9,75 +9,74 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ItemMypageCoffeeingBinding
-import com.coffeeing.client.domain.model.MyClub
-import com.coffeeing.client.presentation.home.HomeCoffeeingAdapter
+import com.coffeeing.client.domain.model.MyApply
 import com.coffeeing.client.util.ItemDiffCallback
 
-class MypageCoffeeingAdapter(
+class MypageCoffeeingApplyAdapter(
     private val moveToDetail: (Int) -> Unit
-) : ListAdapter<MyClub, MypageCoffeeingAdapter.MypageCoffeeingViewHolder>(
-    ItemDiffCallback<MyClub>(
+) : ListAdapter<MyApply, MypageCoffeeingApplyAdapter.MypageCoffeeingApplyViewHolder>(
+    ItemDiffCallback<MyApply>(
         onItemsTheSame = { old, new -> old.id == new.id },
         onContentsTheSame = { old, new -> old == new }
     )
 ) {
-    class MypageCoffeeingViewHolder(
+    class MypageCoffeeingApplyViewHolder(
         private val binding: ItemMypageCoffeeingBinding,
         private val context: Context,
         private val moveToDetail: (Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(myClub: MyClub) {
+        fun onBind(myApply: MyApply) {
             with(binding) {
 
-                if (myClub.tag == "original") chipItemHomeCoffeeingBaristaOriginal.visibility =
+                if (myApply.tag == "original") chipItemHomeCoffeeingBaristaOriginal.visibility =
                     View.VISIBLE
                 else chipItemHomeCoffeeingBaristaOriginal.visibility = View.GONE
-                if (myClub.tag == "friend") chipItemHomeCoffeeingLocalArea.visibility = View.VISIBLE
+                if (myApply.tag == "friend") chipItemHomeCoffeeingLocalArea.visibility = View.VISIBLE
                 else chipItemHomeCoffeeingLocalArea.visibility = View.GONE
-                if (myClub.tag == "tour") chipItemHomeCoffeeingHotPlace.visibility = View.VISIBLE
+                if (myApply.tag == "tour") chipItemHomeCoffeeingHotPlace.visibility = View.VISIBLE
                 else chipItemHomeCoffeeingHotPlace.visibility = View.GONE
-                if (myClub.tag == "worker") chipItemHomeCoffeeingProfessional.visibility =
+                if (myApply.tag == "worker") chipItemHomeCoffeeingProfessional.visibility =
                     View.VISIBLE
                 else chipItemHomeCoffeeingProfessional.visibility = View.GONE
-                if (myClub.tag == "beginner") chipItemHomeCoffeeingBeginner.visibility =
+                if (myApply.tag == "beginner") chipItemHomeCoffeeingBeginner.visibility =
                     View.VISIBLE
                 else chipItemHomeCoffeeingBeginner.visibility = View.GONE
 
-                ivItemHomeCoffeeing.load(myClub.image)
-                tvItemHomeCoffeeingTitle.text = myClub.title
-                tvItemHomeCoffeeingLocation.text = myClub.district
-                tvItemHomeCoffeeingTime.text = myClub.meet_time
+                ivItemHomeCoffeeing.load(myApply.image)
+                tvItemHomeCoffeeingTitle.text = myApply.title
+                tvItemHomeCoffeeingLocation.text = myApply.district
+                tvItemHomeCoffeeingTime.text = myApply.meet_time
                 tvItemHomeCoffeeingPerson.text =
-                    context.getString(R.string.home_coffeeing_person, myClub.num_people)
+                    context.getString(R.string.home_coffeeing_person, myApply.num_people)
 
-                tvItemHomeCoffeeingHeart.text = myClub.like.toString()
+                tvItemHomeCoffeeingHeart.text = myApply.like.toString()
 
-                if (myClub.iflike) ivItemHomeCoffeeingHeart.setImageResource(R.drawable.ic_home_fill_heart)
+                if (myApply.iflike) ivItemHomeCoffeeingHeart.setImageResource(R.drawable.ic_home_fill_heart)
                 else ivItemHomeCoffeeingHeart.setImageResource(R.drawable.ic_home_stroke_heart)
 
                 root.setOnClickListener {
-                    moveToDetail(myClub.id)
+                    moveToDetail(myApply.id)
                 }
             }
         }
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MypageCoffeeingViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MypageCoffeeingApplyAdapter.MypageCoffeeingApplyViewHolder {
         val binding =
             ItemMypageCoffeeingBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
-        return MypageCoffeeingAdapter.MypageCoffeeingViewHolder(
+        return MypageCoffeeingApplyAdapter.MypageCoffeeingApplyViewHolder(
             binding,
             parent.context,
             moveToDetail
         )
     }
 
-    override fun onBindViewHolder(holder: MypageCoffeeingViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MypageCoffeeingApplyAdapter.MypageCoffeeingApplyViewHolder, position: Int) {
         holder.onBind(currentList[position])
     }
 }
