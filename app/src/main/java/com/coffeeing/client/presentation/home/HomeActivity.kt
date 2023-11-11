@@ -4,15 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.coffeeing.client.R
 import com.coffeeing.client.databinding.ActivityHomeBinding
-import com.coffeeing.client.domain.model.Coffeeing
 import com.coffeeing.client.presentation.create.CreateActivity
 import com.coffeeing.client.presentation.detail.DetailActivity
 import com.coffeeing.client.presentation.mypage.MypageActivity
 import com.coffeeing.client.presentation.type.HomeSortType
 import com.coffeeing.client.util.binding.BindingActivity
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
+@AndroidEntryPoint
 class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home) {
     private val viewModel: HomeViewModel by viewModels()
     lateinit var homeCoffeeingAdapter: HomeCoffeeingAdapter
@@ -24,16 +29,22 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         initLayout()
         addListeners()
         addObservers()
+        collectData()
     }
 
     private fun initLayout() {
-        homeCoffeeingAdapter = HomeCoffeeingAdapter(::moveToDetail)
-        binding.rvHomeCoffeeing.adapter = homeCoffeeingAdapter
-        homeCoffeeingAdapter.submitList(viewModel.mockHomeCoffeeingList)
+        viewModel.getHomeList()
 
-        if (viewModel.mockHomeCoffeeingList.isEmpty()) {
+        homeCoffeeingAdapter = HomeCoffeeingAdapter(::moveToDetail, ::postLike)
+        binding.rvHomeCoffeeing.adapter = homeCoffeeingAdapter
+        homeCoffeeingAdapter.submitList(viewModel.homeList.value)
+
+        if (viewModel.homeList.value.isNullOrEmpty()) {
             binding.rvHomeCoffeeing.visibility = View.INVISIBLE
             binding.layoutHomeEmpty.visibility = View.VISIBLE
+        } else {
+            binding.rvHomeCoffeeing.visibility = View.VISIBLE
+            binding.layoutHomeEmpty.visibility = View.INVISIBLE
         }
 
         binding.tvHomeSort.text = viewModel.homeSort.value?.sortType ?: HomeSortType.RECENT.sortType
@@ -60,6 +71,25 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         }
     }
 
+    private fun collectData() {
+        viewModel.homeList.flowWithLifecycle(lifecycle).onEach {
+            homeCoffeeingAdapter.submitList(viewModel.homeList.value)
+            viewModel.getHomeList()
+
+            if (viewModel.homeList.value.isNullOrEmpty()) {
+                binding.rvHomeCoffeeing.visibility = View.INVISIBLE
+                binding.layoutHomeEmpty.visibility = View.VISIBLE
+            } else {
+                binding.rvHomeCoffeeing.visibility = View.VISIBLE
+                binding.layoutHomeEmpty.visibility = View.INVISIBLE
+            }
+        }.launchIn(lifecycleScope)
+
+        viewModel.likeState.flowWithLifecycle(lifecycle).onEach {
+            viewModel.getHomeList()
+        }.launchIn(lifecycleScope)
+    }
+
     private fun showHomeSortDialog() {
         viewModel.homeSort.value?.let {
             HomeSortBottomSheetDialog(
@@ -70,16 +100,24 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
     }
 
     private fun moveToCreate() {
-        Intent(this@HomeActivity, CreateActivity::class.java).apply {
+        val lastItem = viewModel.homeList.value?.lastOrNull()
+        if (lastItem != null) {
+            Intent(this@HomeActivity, CreateActivity::class.java).apply {
+                putExtra(ID, lastItem.id)
+                startActivity(this)
+            }
+        }
+    }
+
+    private fun moveToDetail(id: Int) {
+        Intent(this, DetailActivity::class.java).apply {
+            putExtra(ID, id)
             startActivity(this)
         }
     }
 
-    private fun moveToDetail(coffeeing: Coffeeing) {
-        Intent(this, DetailActivity::class.java).apply {
-            putExtra(COFFEEING, coffeeing.toParcelizeCoffeeing())
-            startActivity(this)
-        }
+    private fun postLike(postId: Int) {
+        viewModel.postLike(postId)
     }
 
     private fun moveToMypage() {
@@ -90,6 +128,6 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
 
     companion object {
         const val HOME_SORT_DIALOG = "homeSortDialog"
-        const val COFFEEING = "coffeeing"
+        const val ID = "id"
     }
 }

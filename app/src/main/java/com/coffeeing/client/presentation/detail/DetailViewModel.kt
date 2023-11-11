@@ -1,12 +1,10 @@
-package com.coffeeing.client.presentation.home
+package com.coffeeing.client.presentation.detail
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.coffeeing.client.domain.model.HomeCoffeeing
+import com.coffeeing.client.domain.model.DetailCoffeeing
 import com.coffeeing.client.domain.model.Like
 import com.coffeeing.client.domain.repository.MainRepository
-import com.coffeeing.client.presentation.type.HomeSortType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,25 +13,19 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class DetailViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
-    private var _homeSort = MutableLiveData(HomeSortType.RECENT)
-    val homeSort get() = _homeSort
-    private var _homeList = MutableStateFlow<List<HomeCoffeeing>?>(null)
-    val homeList get() = _homeList.asStateFlow()
-    private val _likeState = MutableStateFlow<Like?>(null)
+    private var _coffeeingDetail = MutableStateFlow<DetailCoffeeing?>(null)
+    val coffeeingDetail get() = _coffeeingDetail.asStateFlow()
+    private var _likeState = MutableStateFlow<Like?>(null)
     val likeState get() = _likeState.asStateFlow()
 
-    fun setHomeSort(homeSortType: HomeSortType) {
-        _homeSort.value = homeSortType
-    }
-
-    fun getHomeList() {
+    fun getCoffeeingDetail(postId: Int) {
         viewModelScope.launch {
-            mainRepository.getHomeList()
+            mainRepository.getCoffeeingDetail(postId)
                 .onSuccess {
-                    _homeList.value = it
+                    _coffeeingDetail.value = it
                 }
                 .onFailure { exception: Throwable ->
                     Timber.e(exception.message)

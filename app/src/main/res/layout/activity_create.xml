@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.coffeeing.client.presentation.create.CreateViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -252,9 +255,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tv_create_category"
                         app:layout_constraintTop_toBottomOf="@+id/tv_create_category"
-                        app:singleSelection="false">
+                        app:singleSelection="true">
 
                         <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_create_original"
                             style="@style/Style.Material3.Chip.Coffeeing.Type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -263,6 +267,7 @@
                             android:textSize="7dp" />
 
                         <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_create_friend"
                             style="@style/Style.Material3.Chip.Coffeeing.Type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -271,6 +276,7 @@
                             android:textSize="7dp" />
 
                         <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_create_tour"
                             style="@style/Style.Material3.Chip.Coffeeing.Type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -279,6 +285,7 @@
                             android:textSize="7dp" />
 
                         <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_create_worker"
                             style="@style/Style.Material3.Chip.Coffeeing.Type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -287,6 +294,7 @@
                             android:textSize="7dp" />
 
                         <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_create_beginner"
                             style="@style/Style.Material3.Chip.Coffeeing.Type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
