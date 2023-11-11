@@ -105,7 +105,7 @@ class DetailActivity : BindingActivity<ActivityDetailBinding>(R.layout.activity_
                     getString(R.string.home_coffeeing_person, detailCoffeeing.numPeople)
                 tvDetailNickname.text = detailCoffeeing.organizer
                 tvDetailCount.text = getString(R.string.detail_count, 3)
-                tvDetailIntroText.text = detailCoffeeing.organizer
+                tvDetailIntroText.text = detailCoffeeing.content
                 tvDetailCountdownContent.text =
                     detailCoffeeing.deadlineYY + "-" + detailCoffeeing.deadlineMM + "-" + detailCoffeeing.deadlineDD
                 if (detailCoffeeing.iflike) ivDetailLikeButton.setImageResource(R.drawable.ic_home_fill_heart)
