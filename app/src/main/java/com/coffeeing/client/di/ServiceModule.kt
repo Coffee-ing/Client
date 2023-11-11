@@ -1,6 +1,7 @@
 package com.coffeeing.client.di
 
 import com.coffeeing.client.data.service.DummyService
+import com.coffeeing.client.data.service.MypageService
 import com.coffeeing.client.data.service.MainService
 import dagger.Module
 import dagger.Provides
@@ -16,6 +17,11 @@ object ServiceModule {
     @Provides
     fun provideDummyService(retrofit: Retrofit): DummyService =
         retrofit.create(DummyService::class.java)
+
+    @Singleton
+    @Provides
+    fun mypageService(retrofit: Retrofit): MypageService =
+        retrofit.create(MypageService::class.java)
 
     @Singleton
     @Provides
