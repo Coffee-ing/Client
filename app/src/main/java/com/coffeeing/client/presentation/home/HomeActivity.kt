@@ -62,19 +62,33 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         binding.ivHomeMyPage.setOnClickListener {
             moveToMypage()
         }
+
+        binding.ivHomeSearch.setOnClickListener {
+            viewModel.getSearch(binding.etHomeSearch.text.toString())
+        }
+
+        binding.cgHomeCoffeeingTypeFilter.setOnCheckedChangeListener { _, checkedId ->
+            when (binding.cgHomeCoffeeingTypeFilter.checkedChipId) {
+                R.id.chip_home_coffeeing_original -> viewModel.setFilterType("original")
+                R.id.chip_home_coffeeing_friend -> viewModel.setFilterType("friend")
+                R.id.chip_home_coffeeing_tour -> viewModel.setFilterType("tour")
+                R.id.chip_home_coffeeing_worker -> viewModel.setFilterType("worker")
+                R.id.chip_home_coffeeing_beginner -> viewModel.setFilterType("beginner")
+                else -> viewModel.setFilterType("original")
+            }
+        }
     }
 
     private fun addObservers() {
         viewModel.homeSort.observe(this) { homeSortType ->
             binding.tvHomeSort.text =
-                viewModel.homeSort.value?.sortType ?: HomeSortType.RECENT.sortType
+                viewModel.homeSort.value?.sortType ?: "최신순"
         }
     }
 
     private fun collectData() {
         viewModel.homeList.flowWithLifecycle(lifecycle).onEach {
             homeCoffeeingAdapter.submitList(viewModel.homeList.value)
-            viewModel.getHomeList()
 
             if (viewModel.homeList.value.isNullOrEmpty()) {
                 binding.rvHomeCoffeeing.visibility = View.INVISIBLE
@@ -88,13 +102,24 @@ class HomeActivity : BindingActivity<ActivityHomeBinding>(R.layout.activity_home
         viewModel.likeState.flowWithLifecycle(lifecycle).onEach {
             viewModel.getHomeList()
         }.launchIn(lifecycleScope)
+
+        viewModel.filterType.flowWithLifecycle(lifecycle).onEach {
+            viewModel.filterType.value?.let { tag ->
+                viewModel.getFilter(tag)
+            }
+        }.launchIn(lifecycleScope)
     }
 
     private fun showHomeSortDialog() {
         viewModel.homeSort.value?.let {
             HomeSortBottomSheetDialog(
                 currentSortType = it,
-                sort = { sortType -> viewModel.setHomeSort(sortType) }
+                sort = { sortType -> viewModel.setHomeSort(sortType) },
+                onDialogClosed = {
+                    viewModel.getSort(
+                        viewModel.homeSort.value?.sortType ?: "최신순"
+                    )
+                }
             ).show(supportFragmentManager, HOME_SORT_DIALOG)
         }
     }

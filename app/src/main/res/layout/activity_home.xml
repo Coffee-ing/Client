@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.coffeeing.client.presentation.home.HomeViewModel" />
@@ -66,9 +67,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
                 app:singleLine="true"
-                app:singleSelection="false">
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_home_coffeeing_original"
                     style="@style/Style.Material3.Chip.Coffeeing.Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,6 +79,7 @@
                     android:textSize="7dp" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_home_coffeeing_friend"
                     style="@style/Style.Material3.Chip.Coffeeing.Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,6 +88,7 @@
                     android:textSize="7dp" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_home_coffeeing_tour"
                     style="@style/Style.Material3.Chip.Coffeeing.Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,6 +97,7 @@
                     android:textSize="7dp" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_home_coffeeing_worker"
                     style="@style/Style.Material3.Chip.Coffeeing.Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,6 +106,7 @@
                     android:textSize="7dp" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_home_coffeeing_beginner"
                     style="@style/Style.Material3.Chip.Coffeeing.Type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

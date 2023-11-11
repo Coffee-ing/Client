@@ -10,6 +10,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MainService {
     @GET("list")
@@ -35,4 +36,19 @@ interface MainService {
     suspend fun postRegistration(
         @Path("post_id") postId: Int
     ): ResponseRegistration
+
+    @GET("search")
+    suspend fun getSearch(
+        @Query("keyword") keyword: String
+    ): ResponseHomeList
+
+    @GET("sort")
+    suspend fun getSort(
+        @Query("sort") sort: String
+    ): ResponseHomeList
+
+    @GET("filter")
+    suspend fun getFilter(
+        @Query("tag") tag: String
+    ): ResponseHomeList
 }

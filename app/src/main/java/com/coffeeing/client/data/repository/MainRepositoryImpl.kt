@@ -36,4 +36,16 @@ class MainRepositoryImpl @Inject constructor(
     override suspend fun postRegistration(postId: Int): Result<Registration> = runCatching {
         mainDataSource.postRegistration(postId).toRegistration()
     }
+
+    override suspend fun getSearch(keyword: String): Result<List<HomeCoffeeing>> = runCatching {
+        mainDataSource.getSearch(keyword).toHomeList()
+    }
+
+    override suspend fun getSort(sort: String): Result<List<HomeCoffeeing>> = runCatching {
+        mainDataSource.getSort(sort).toHomeList()
+    }
+
+    override suspend fun getFilter(tag: String): Result<List<HomeCoffeeing>> = runCatching {
+        mainDataSource.getFilter(tag).toHomeList()
+    }
 }
